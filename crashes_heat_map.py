@@ -1,11 +1,12 @@
 # %%
-import webbrowser
+# import webbrowser
 from folium import plugins
 from folium.plugins import HeatMap
 # %%
 lon = -87.6298
 lat = 41.8781
 CHI_map = folium.Map([lat, lon], tiles="Stamen Toner", zoom_start=10.5)
+
 points = crashes.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
 lat = points['LATITUDE'].values
 lon = points['LONGITUDE'].values
@@ -17,6 +18,5 @@ CHI_map.save("./maps/chi_heat.html")
 CHI_map
 
 # webbrowser.open("file:///Users/mi/soviz_project/maps/chi_heat.html", new=2)
-
 
 # %%
