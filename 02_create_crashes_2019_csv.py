@@ -14,6 +14,18 @@ is_after_start_date = datetime.date(2019, 1, 1) <= pd.to_datetime(data['CRASH_DA
 is_before_end_date = pd.to_datetime(data['CRASH_DATE']).dt.date < datetime.date(2020, 1, 1)
 
 # %%
+# Filter out rows where LOCATION is nan
+
+data = data.dropna(subset=['LOCATION'])
+
+# %%
+# Remove unused columns
+filter_columns = ['STATEMENTS_TAKEN_I', 'CRASH_DATE_EST_I', 'PHOTOS_TAKEN_I', 'WORKERS_PRESENT_I', 'WORK_ZONE_I',
+                  'WORK_ZONE_TYPE', 'DATE_POLICE_NOTIFIED', 'REPORT_TYPE', 'LANE_CNT']
+
+data = data.drop(columns=filter_columns)
+
+# %%
 # Create a new .csv file that only contains data from 2019
 
 data.loc[is_after_start_date & is_before_end_date].to_csv('data/crashes_2019.csv', index=False)
