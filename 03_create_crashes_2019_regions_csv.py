@@ -45,7 +45,6 @@ N = len(crashes_data)
 
 crashes_region_ids = np.full(N, -1)
 for idx, row in crashes_data.iterrows():
-    crashes_region_ids[idx] = -1
     loc = (row['LONGITUDE'], row['LATITUDE'])
     for region in regions:
         if is_crash_in_region(loc, region['nw'], region['se']):
