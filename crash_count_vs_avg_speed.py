@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+from bokeh.plotting import figure, output_file, show
 
 
 # TODO: Don't use hardcoded dicts
@@ -27,9 +27,26 @@ y = np.zeros(29)
 for key, val in region_speed_means.items():
     y[key - 1] = val
 
-plt.scatter(x, y, facecolors='none', edgecolors='black')
-plt.title('Number of Crashes vs Avg. Speed for All 29 Regions')
-plt.xlabel('Crash count')
-plt.ylabel('Avg. speed')
-plt.show()
+# output to static HTML file
+output_file("crash_count_vs_avg_speed.html")
 
+TOOLTIPS = [
+    ("Region ID", "$index"),
+    ("Number of crashes", "@x"),
+    ("Avg. speed (mph)", "@y{(0.0)}"),
+]
+
+# create a new plot with a title and axis labels
+p = figure(
+    title="Number of Crashes vs Avg. Speed for All 29 Regions",
+    x_axis_label='Crash count',
+    y_axis_label='Avg. speed',
+    toolbar_location=None,
+    tools="",
+    tooltips=TOOLTIPS
+)
+
+p.circle(x, y, size=18, fill_color="white", line_color="black")
+
+# show the results
+show(p)
