@@ -215,7 +215,7 @@ def plot_map_fill_multiples_ids_tone(sf, title, beats,
             for ip in range(len(shape_ex.points)):
                 x_lon[ip] = shape_ex.points[ip][0]
                 y_lat[ip] = shape_ex.points[ip][1]
-            ax.fill(x_lon, y_lat, color_ton[beats.index(id)])
+            ax.fill(x_lon, y_lat, color_ton[beats._(id)])
             if print_id != False:
                 x0 = np.mean(x_lon)
                 y0 = np.mean(y_lat)
@@ -277,7 +277,7 @@ def plot_comunas_data(sf, title, comunas, data=None,
     comuna_id = []
     for i in comunas:
         comuna_id.append(df.beat_num.astype(
-            int)[df.beat_num.astype(int) == i].index[0])
+            int)[df.beat_num.astype(int) == i]._[0])
 
     plot_map_fill_multiples_ids_tone(sf, title, comuna_id,
                                      print_id,
