@@ -20,14 +20,13 @@ for i, row in locations.iterrows():
     region = row.REGION_ID
     if region == -1:
         continue
-    if i > 50000:
+    if i > 5000:
         break
 
     loc = (row['LATITUDE'], row['LONGITUDE'])
     folium.CircleMarker((loc[0], loc[1]),
-                        radius=1,
+                        radius=.05,
                         fill=True,
-                        fill_opacity=1,
+                        opacity=.1,
                         color=colors[int(row.REGION_ID)]).add_to(CHI_map)
-
 CHI_map.save("./maps/chi_regions.html")
