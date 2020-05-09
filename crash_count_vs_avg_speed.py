@@ -28,7 +28,7 @@ for key, val in region_speed_means.items():
     y[key - 1] = val
 
 # output to static HTML file
-output_file("crash_count_vs_avg_speed.html")
+output_file("./html/crash_count_vs_avg_speed.html")
 
 TOOLTIPS = [
     ("Region ID", "$index"),

@@ -2,7 +2,10 @@
 .DS_Store
 .vscode
 data/*
-!data/.gitkeep
 maps/*
+html/*
+!data/.gitkeep
+!maps/.gitkeep
+!html/.gitkeep
 Soviz.code-workspace
 rmk_ignore
