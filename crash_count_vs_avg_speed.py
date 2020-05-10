@@ -28,7 +28,7 @@ for key, val in region_speed_means.items():
     y[key - 1] = val
 
 # output to static HTML file
-output_file("./html/crash_count_vs_avg_speed.html")
+output_file("./web/bokeh/crash_count_vs_avg_speed.html")
 
 TOOLTIPS = [
     ("Region ID", "$index"),
@@ -39,14 +39,15 @@ TOOLTIPS = [
 # create a new plot with a title and axis labels
 p = figure(
     title="Number of Crashes vs Avg. Speed for All 29 Regions",
-    x_axis_label='Crash count',
-    y_axis_label='Avg. speed',
+    x_axis_label='Number of Crashes',
+    y_axis_label='Avg. Speed',
     toolbar_location=None,
-    tools="",
-    tooltips=TOOLTIPS
+    tools='',
+    tooltips=TOOLTIPS,
+    sizing_mode='stretch_width',
 )
 
-p.circle(x, y, size=18, fill_color="white", line_color="black")
+p.circle(x, y, size=18, fill_color="black", fill_alpha=0.25, line_color="black")
 
 # show the results
 show(p)
