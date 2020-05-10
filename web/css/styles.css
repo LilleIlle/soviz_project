@@ -14,8 +14,7 @@ body {
 .skyline {
     height: 400px;
     width: 100%;
-    background-image: url("../assets/skyline.jpg");
-    -webkit-filter: invert(100%);
+    background-image: url("../assets/skyline.png");
     background-position: bottom;
     background-size: contain;
     display: flex;
@@ -25,9 +24,11 @@ body {
 }
 
 .skyline__title {
-    letter-spacing: 18px;
-    color: white;
-    margin-bottom: 0px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: black;
+    margin-bottom: -12px;
 }
 
 section {
