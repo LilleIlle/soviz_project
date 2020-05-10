@@ -5,27 +5,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
     <title>Chicago Traffic</title>
 </head>
 <body>
 <h1>Chicago Traffic</h1>
 
-<!-- Plot 1 element -->
-<div class="bk-root" id="840fb949-bcca-4ab7-95a6-277f639e736e" data-root-id="1001"></div>
+<!-- Crashes Heat Map -->
+<div>
+    <h3>Heat map over all crashes in Chicago</h3>
+<iframe height="700" width="700" src="./folium/heat_crashes.html"></iframe>
+</div>
+
+<!-- Crashes Heat Map over Time -->
+<div>
+    <h3>Heat map over all crashes in Chicago</h3>
+    <iframe height="700" width="700" src="./folium/heat_crashes_over_time.html"></iframe>
+</div>
 
 
-<!-- Load Bokeh -->
-<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.2.min.js"
-        integrity="sha384-ufR9RFnRs6lniiaFvtJziE0YeidtAgBRH6ux2oUItHw5WTvE1zuk9uzhUU/FJXDp"
-        crossorigin="anonymous"></script>
-<script type="text/javascript">
-    Bokeh.set_log_level("info");
-</script>
-
-
-<!-- Plot 1 script -->
-<script type="text/javascript" src="bokeh/crash_count_vs_avg_speed.js"></script>
+<!-- Number of Crashes vs Avg. Speed -->
+<div>
+    <iframe height="700" width="700" src="./bokeh/crash_count_vs_avg_speed.html"></iframe>
+</div>
 
 
 </body>

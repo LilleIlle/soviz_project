@@ -3,3 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+iframe {
+    border: none;
+}
