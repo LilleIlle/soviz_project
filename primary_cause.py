@@ -32,7 +32,8 @@ p = figure(x_range=FactorRange(factors=causes_norm.CRASH_HOUR.astype(str)),
            y_axis_label='Relative frequency',
            plot_width=1700,
            plot_height=1000,
-           toolbar_location='left')
+           toolbar_location=None,
+           sizing_mode='stretch_width')
 # %%
 bar = {}
 colors = np.append(Category20[20], Category20b[20])
