@@ -9,3 +9,4 @@ html/*
 !html/.gitkeep
 Soviz.code-workspace
 rmk_ignore
+rsl_ignore
