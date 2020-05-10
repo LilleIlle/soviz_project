@@ -1,9 +1,86 @@
+html {
+    background-color: black;
+}
+
 body {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    background-color: white;
+}
+
+.skyline {
+    height: 400px;
+    width: 100%;
+    background-image: url("../assets/skyline.jpg");
+    -webkit-filter: invert(100%);
+    background-position: bottom;
+    background-size: contain;
+    display: flex;
+    background-repeat: repeat-x;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.skyline__title {
+    letter-spacing: 18px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 72px;
+    max-width: 960px;
 }
 
 iframe {
     border: none;
+}
+
+.map {
+    border-radius: 6px;
+    border: 2px black solid;
+    margin: 24px 0;
+}
+
+.plot {
+    margin: 24px 0 6px -53px;
+}
+
+h2, h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+p {
+    max-width: 600px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.map__caption {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+    width: 600px;
+}
+
+.map__caption__title {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: -6px;
+}
+
+.map__caption__body {
+    font-style: italic;
+    margin-bottom: 0;
 }
