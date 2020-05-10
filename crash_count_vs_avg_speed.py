@@ -35,7 +35,6 @@ TOOLTIPS = [
 
 # create a new plot with a title and axis labels
 p = figure(
-    title="Number of Crashes vs Avg. Speed for All 29 Regions",
     x_axis_label='Number of Crashes',
     y_axis_label='Avg. Speed',
     toolbar_location=None,
