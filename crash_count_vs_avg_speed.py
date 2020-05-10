@@ -1,5 +1,5 @@
 import numpy as np
-from bokeh.plotting import figure, output_file, show
+from bokeh.plotting import figure, output_file, save
 
 
 # TODO: Don't use hardcoded dicts
@@ -27,9 +27,6 @@ y = np.zeros(29)
 for key, val in region_speed_means.items():
     y[key - 1] = val
 
-# output to static HTML file
-output_file("./web/bokeh/crash_count_vs_avg_speed.html")
-
 TOOLTIPS = [
     ("Region ID", "$index"),
     ("Number of crashes", "@x"),
@@ -49,5 +46,6 @@ p = figure(
 
 p.circle(x, y, size=18, fill_color="black", fill_alpha=0.25, line_color="black")
 
-# show the results
-show(p)
+# Output to static HTML file
+output_file("./web/bokeh/crash_count_vs_avg_speed.html")
+save(p)
