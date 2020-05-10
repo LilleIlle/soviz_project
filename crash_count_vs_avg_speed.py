@@ -41,7 +41,7 @@ p = figure(
     toolbar_location=None,
     tools='',
     tooltips=TOOLTIPS,
-    sizing_mode='stretch_width',
+    sizing_mode='stretch_both',
 )
 
 p.circle(x, y, size=18, fill_color="black", fill_alpha=0.25, line_color="black")
