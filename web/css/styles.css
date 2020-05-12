@@ -34,7 +34,6 @@ body {
 section {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 72px;
     max-width: 960px;
 }
@@ -84,4 +83,14 @@ p {
 .map__caption__body {
     font-style: italic;
     margin-bottom: 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 54px;
+    background-color: black;
+    color: white;
 }
