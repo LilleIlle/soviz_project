@@ -9,6 +9,10 @@ from bokeh.transform import dodge
 
 # %%
 crashes = pd.read_csv("./data/crashes_2019_regions.csv")
+
+# %%
+output_file("./web/bokeh/primary_cause.html")
+
 # %%
 crashes_primary = crashes[crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE']
 crashes_primary = crashes_primary[crashes_primary['PRIM_CONTRIBUTORY_CAUSE'] != 'NOT APPLICABLE']
@@ -52,5 +56,6 @@ p.add_layout(legend, 'right')
 p.legend.label_text_font_size = '8pt'
 p.legend.click_policy = "mute"
 # %%
-output_file("./html/primary_cause.html")
+# output_file("./html/primary_cause.html")
+
 show(p)
