@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib as plt
 import folium
 from bokeh.palettes import Category20, Category20b, Turbo256
-from bokeh.io import output_file, save, output_notebook
+from bokeh.io import output_file, show, save, output_notebook
 from bokeh.models import ColumnDataSource, FactorRange, Legend
 from bokeh.plotting import figure
 from bokeh.transform import dodge
@@ -47,16 +47,18 @@ save(p)
 # HOUR PLOT
 output_file("./web/bokeh/hours_barchart.html")
 
+hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
+
 x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
 counts = crashes['CRASH_HOUR'].value_counts().sort_index()
 
-p = figure(x_range=(0,23), plot_height=450, plot_width=800, title="Hourly Crash Distribution", toolbar_location=None, tools="", y_axis_label='Number of Crashes', x_axis_label='Hour')
+p = figure(x_range=(-0.5,23.5), plot_height=450, plot_width=800, title="Hourly Crash Distribution", toolbar_location=None, tools="", y_axis_label='Number of Crashes', x_axis_label='Hour')
 
-p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
+p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000') #
 
 p.xgrid.grid_line_color = None
 p.y_range.start = 0
-p.xaxis.ticker = list(range(0, 23))
+p.xaxis.ticker = list(range(0, 24))
 
-save(p)
+show(p)
 # %%

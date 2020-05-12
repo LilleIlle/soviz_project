@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import folium
 from folium.plugins import HeatMap, HeatMapWithTime
@@ -28,7 +29,8 @@ CHI_map.save("./web/folium/heat_crashes.html")
 
 # %%
 # Heat map over time - crashes
-CHI_map_time = folium.Map(map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+CHI_map_time = folium.Map(
+    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
 heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
 
 # Create weight column, using date
