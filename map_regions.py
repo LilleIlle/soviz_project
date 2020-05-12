@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import numpy as np
 import folium
@@ -29,4 +30,4 @@ for i, row in locations.iterrows():
                         fill=True,
                         opacity=.1,
                         color=colors[int(row.REGION_ID)]).add_to(CHI_map)
-CHI_map.save("./maps/chi_regions.html")
+CHI_map.save("./web/folium/chi_regions.html")
