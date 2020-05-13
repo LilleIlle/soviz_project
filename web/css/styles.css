@@ -67,20 +67,20 @@ p {
     text-align: justify;
 }
 
-.map__caption {
+.caption {
     display: flex;
     flex-direction: column;
     padding-bottom: 24px;
     width: 600px;
 }
 
-.map__caption__title {
+.caption__title {
     font-weight: 700;
     margin-top: 0;
     margin-bottom: -6px;
 }
 
-.map__caption__body {
+.caption__body {
     font-style: italic;
     margin-bottom: 0;
 }
