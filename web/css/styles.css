@@ -38,9 +38,20 @@ section {
     max-width: 960px;
 }
 
+.iframe-wrapper {
+    position: relative;
+}
+
 iframe {
     border: none;
 }
+
+.fullscreen-btn {
+    position: absolute;
+    top: 15px;
+    right: -48px;
+}
+
 
 .map {
     border-radius: 6px;
