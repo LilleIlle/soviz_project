@@ -12,12 +12,20 @@ import math
 import bokeh
 # %%
 crashes = pd.read_csv("./data/crashes_2019_regions.csv")
+crashes = crashes[crashes['REGION_ID'] != -1]
 # %%
-region_crashes = crashes.groupby('REGION_ID')['CRASH_DATE'].count().sort_values()
-crashes_fatal_incapacitating = crashes[(crashes['INJURIES_FATAL']>0) | (crashes['INJURIES_INCAPACITATING']>0)]
-region_crashes_fatal_incapacitating = crashes_fatal_incapacitating.groupby('REGION_ID')['CRASH_RECORD_ID'].count().sort_values()
-df = pd.concat([region_crashes,region_crashes_fatal_incapacitating], axis=1)
-df = df.rename(columns={'CRASH_DATE': 'total_crashes', 'CRASH_RECORD_ID': 'total_fatal_incap'})
+region_crashes = crashes.groupby(
+    'REGION_ID')['CRASH_DATE'].count().sort_values()
+crashes_fatal_incapacitating = crashes[(crashes['INJURIES_FATAL'] > 0) | (
+    crashes['INJURIES_INCAPACITATING'] > 0)]
+region_crashes_fatal_incapacitating = crashes_fatal_incapacitating.groupby(
+    'REGION_ID')['CRASH_RECORD_ID'].count().sort_values()
+df = pd.concat([region_crashes, region_crashes_fatal_incapacitating], axis=1)
+df = df.rename(columns={'CRASH_DATE': 'total_crashes',
+                        'CRASH_RECORD_ID': 'total_fatal_incap'})
 df['fraction'] = df['total_fatal_incap']/df['total_crashes']
 # %%
-df
+df.to_csv('data/fatal_incap_frac.csv', index=True)
+
+
+# %%

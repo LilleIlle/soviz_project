@@ -10,10 +10,10 @@ from folium import plugins
 crashes = pd.read_csv("./data/crashes_2019_regions.csv")
 chi_bounding = {
     "lon": -87.6298,
-    "lat": 41.8781
+    "lat": 41.8281
 }
 map_location = [chi_bounding['lat'], chi_bounding['lon']]
-map_zoom = 11
+map_zoom = 10.5
 
 # %%
 # Static heat map crashes
