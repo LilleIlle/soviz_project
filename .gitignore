@@ -12,3 +12,6 @@ rmk_ignore
 rsl_ignore
 mi_ignore
 .ipynb_checkpoints
+
+# Huuuuuuuge HTML file
+web/folium/chi_regions.html
