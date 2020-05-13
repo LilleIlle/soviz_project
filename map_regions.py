@@ -34,7 +34,7 @@ for i in region_idx:
 # colors = np.array(Turbo256)[idx]
 colors = np.append(Category20[20], Category20b[10])
 lon = -87.6298
-lat = 41.8781
+lat = 41.8281
 CHI_map = folium.Map([lat, lon], tiles="Stamen Toner", zoom_start=10.5)
 
 for i, row in locations.iterrows():
@@ -42,13 +42,13 @@ for i, row in locations.iterrows():
     if region == -1:
         continue
     # if i > 5000:
-        # break
+    #     break
 
     loc = (row['LATITUDE'], row['LONGITUDE'])
     folium.CircleMarker((loc[0], loc[1]),
-                        radius=.05,
+                        radius=.15,
                         fill=True,
-                        opacity=.1,
+                        opacity=.6,
                         color=colors[int(row.REGION_ID)]).add_to(CHI_map)
 
 for region in centers:
