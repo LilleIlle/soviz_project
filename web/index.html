@@ -67,5 +67,14 @@
 <div class="footer">
     <span style="padding-bottom: 12px">©2020 Karlsson, Illemann & Liebst</span>
 </div>
+
+
+<script>
+    /* Enumerate all figures */
+    document.body.querySelectorAll('.caption__title').forEach((el, i) => {
+        el.textContent = `Figure ${i + 1}`
+    })
+</script>
+
 </body>
 </html>
