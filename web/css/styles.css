@@ -24,9 +24,8 @@ body {
 }
 
 .skyline__title {
-    font-family: 'Playfair Display', serif;
+    /*font-family: 'Playfair Display', serif;*/
     font-weight: 900;
-    letter-spacing: 6px;
     color: black;
     margin-bottom: -12px;
 }
