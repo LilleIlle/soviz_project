@@ -7,6 +7,7 @@ from bokeh.palettes import Category20, Category20b, Turbo256
 from bokeh.io import output_file, show, save, output_notebook
 from bokeh.models import ColumnDataSource, FactorRange, Legend
 from bokeh.plotting import figure
+from bokeh.models import LinearAxis, Range1d
 from bokeh.transform import dodge
 import bokeh
 # %%
@@ -52,7 +53,14 @@ hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
 x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
 counts = crashes['CRASH_HOUR'].value_counts().sort_index()
 
-p = figure(x_range=(-0.5,23.5), plot_height=450, plot_width=800, title="Hourly Crash Distribution", toolbar_location=None, tools="", y_axis_label='Number of Crashes', x_axis_label='Hour')
+p = figure(x_range=(-0.5,23.5),
+           plot_height=450,
+           plot_width=800,
+           title="Hourly Crash Distribution",
+           toolbar_location=None,
+           tools="",
+           y_axis_label='Number of Crashes',
+           x_axis_label='Hour')
 
 p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000') #
 
@@ -61,4 +69,39 @@ p.y_range.start = 0
 p.xaxis.ticker = list(range(0, 24))
 
 show(p)
-# %%
+
+# %% HOUR AND AVERAGE SPEED PLOT
+congestion = pd.read_csv("./data/congestion_2019.csv")
+output_file("./web/bokeh/hours_congestion_barchart.html")
+
+congestion = congestion[congestion['SPEED']>0.0]
+regions_congestion = congestion.groupby(['REGION_ID','HOUR'])['SPEED'].mean()
+hour_congestion = congestion.groupby('HOUR')['SPEED'].mean()
+
+
+hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
+
+x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
+counts = crashes['CRASH_HOUR'].value_counts().sort_index()
+
+p = figure(x_range=(-0.5,23.5),
+           plot_height=450,
+           plot_width=800,
+           title="Hourly Crash Distribution",
+           toolbar_location=None,
+           tools="",
+           y_axis_label='Number of Crashes',
+           x_axis_label='Hour')
+
+#p.yaxis.axis_line_color = "red"
+p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
+p.extra_y_ranges = {'SPEED': Range1d(start=(hour_congestion.min()-0.25), end=(hour_congestion.max())+0.25)}
+p.add_layout(LinearAxis(y_range_name='SPEED', axis_label="Average mph", axis_line_color='blue'), 'right')
+p.line(x, hour_congestion.array, line_width=1,y_range_name='SPEED',line_color="blue")
+
+
+p.xgrid.grid_line_color = None
+p.y_range.start = 0
+p.xaxis.ticker = list(range(0, 24))
+
+show(p)
