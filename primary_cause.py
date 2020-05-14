@@ -31,9 +31,15 @@ causes_norm.fillna(0)
 # %%
 source = causes_norm
 # %%
+
+#TOOLTIPS = [
+#    ("Crashes", "@i"),
+#]
 p = figure(x_range=FactorRange(factors=causes_norm.CRASH_HOUR.astype(str)),
            y_axis_type="log",
            title="Crash primary causes throughout the day",
+           tools='',
+           #tooltips=TOOLTIPS,
            x_axis_label='Hour of the day',
            y_axis_label='Number of crashes',
            plot_width=1700,
