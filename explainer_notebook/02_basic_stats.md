@@ -2,10 +2,11 @@
 
 ### Data Cleaning
 The Crashes data set has 49 attributes and—at the time of writing—404000 data objects.
-In the format of a CSV file it takes up 222 MB of storage.
+ In the format of a CSV file it takes up 222 MB of storage.
 Gathering of the data began in 2015 and has since been updated daily.
-For this project, traffic is analyzed over the course of a full year.
-Thus, only crashes that took place during 2019 are considered:
+It is thus a fairly large data set and we early on in the process deemed necessary to narrow down in "scope" - both in terms of time and attributes.
+For this project, traffic is analyzed over the course of a full year to be able to analyze the temporal variations throughout a full year.
+Thus, only crashes that took place during 2019 (the most recent full year) are considered:
 
 > code showing filtering: `02_create_crashes_2019_csv.py`
 
