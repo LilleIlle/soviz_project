@@ -31,7 +31,6 @@ causes_norm.fillna(0)
 # %%
 source = causes_norm
 # %%
-
 #TOOLTIPS = [
 #    ("Crashes", "@i"),
 #]
@@ -56,7 +55,6 @@ for indx, i in enumerate(cp):
     bar[i] = p.vbar(x=dodge('CRASH_HOUR', -.5, range=p.x_range), top=i, source=source, muted_alpha=0.01, muted=True,
                     width=.5, fill_color=colors[indx], bottom=0.01, alpha=0.6)
     items.append((i, [bar[i]]))
-
 # %%
 legend = Legend(items=items)
 p.add_layout(legend, 'right')
@@ -65,19 +63,4 @@ p.legend.click_policy = "mute"
 p.y_range.start = 0
 # %%
 output_file("./html/primary_cause.html")
-
 show(p)
-# %%
-
-
-# %%
-#cx = crashes_primary.groupby('PRIM_CONTRIBUTORY_CAUSE')
-#cx = cx.filter(lambda x: len(x) > 100)
-#ss = cx.PRIM_CONTRIBUTORY_CAUSE.unique()
-
-# xx = crashes_primary.groupby('PRIM_CONTRIBUTORY_CAUSE')['PRIM_CONTRIBUTORY_CAUSE'].filter(lambda x: len(x) >= 20)
-
-
-#ux = cx.PRIM_CONTRIBUTORY_CAUSE.unique()
-
-# w = crashes_primary.groupby('PRIM_CONTRIBUTORY_CAUSE').size().sort_values()
