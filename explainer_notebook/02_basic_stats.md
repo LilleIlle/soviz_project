@@ -41,3 +41,10 @@ Given the long- and latitude of crash, it is possible to find the region within 
 The found region ID is then added as an attribute to the Crashes data set for each crash.
 
 > code showing preprocessing: `02_create_crashes_2019_regions_csv.py`
+
+### Basic statistics
+
+> TODO: Insert map with region numbers
+
+> TODO: Basic stats bokeh plots
+
