@@ -27,28 +27,6 @@ heat_data = [[row['LATITUDE'], row['LONGITUDE']]
 HeatMap(data=heat_data, max_zoom=20, radius=12).add_to(CHI_map)
 CHI_map.save("./web/folium/heat_crashes.html")
 
-# %%
-# Heat map over time - crashes
-CHI_map_time = folium.Map(
-    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
-heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
-
-# Create weight column, using date
-heat_df['Weight'] = pd.to_datetime(heat_df['CRASH_DATE']).dt.hour
-heat_df['Weight'] = heat_df['Weight'].astype(float).dropna()
-
-# List comprehension to make out list of lists
-heat_data = [[[row['LATITUDE'], row['LONGITUDE']] for _, row in heat_df[heat_df['Weight'] == i].iterrows()] for i in
-             range(0, 24)]
-
-# Plot it on the map
-hm = plugins.HeatMapWithTime(heat_data,
-                             auto_play=False,
-                             radius=5,
-                             position="topright"
-                             )
-hm.add_to(CHI_map_time)
-CHI_map_time.save("./web/folium/heat_crashes_over_time.html")
 
 # %%
 # Static heat map fatal
@@ -85,3 +63,76 @@ heat_data = [[row['LATITUDE'], row['LONGITUDE']]
 
 HeatMap(data=heat_data, max_zoom=14, radius=12).add_to(CHI_map)
 CHI_map.save("./web/folium/heat_fatal_and_incapacitating.html")
+
+# %%
+# Heat map over time - Hour
+CHI_map_time = folium.Map(
+    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
+
+# Create weight column, using date
+heat_df['Weight'] = pd.to_datetime(heat_df['CRASH_DATE']).dt.hour
+heat_df['Weight'] = heat_df['Weight'].astype(float).dropna()
+
+# List comprehension to make out list of lists
+heat_data = [[[row['LATITUDE'], row['LONGITUDE']] for _, row in heat_df[heat_df['Weight'] == i].iterrows()] for i in
+             range(0, 24)]
+
+# Plot it on the map
+hm = plugins.HeatMapWithTime(heat_data,
+                             auto_play=False,
+                             radius=4,
+                             position="topright"
+                             )
+hm.add_to(CHI_map_time)
+CHI_map_time.save("./web/folium/heat_crashes_over_time.html")
+
+# %%
+# Heat map over time - day
+CHI_map_time = folium.Map(
+    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
+
+# Create weight column, using date
+heat_df['Weight'] = pd.to_datetime(heat_df['CRASH_DATE']).dt.dayofweek
+# heat_df['Weight'] = heat_df['Weight'].astype(float).dropna()
+
+# List comprehension to make out list of lists
+heat_data = [[[row['LATITUDE'], row['LONGITUDE']] for _, row in heat_df[heat_df['Weight'] == i].iterrows()] for i in
+             range(0, 7)]
+
+# Plot it on the map
+hm = plugins.HeatMapWithTime(heat_data,
+                             auto_play=False,
+                             radius=2,
+                             position="topright",
+                             use_local_extrema=True
+                             )
+hm.add_to(CHI_map_time)
+CHI_map_time.save("./web/folium/heat_crashes_over_time_day_of_week.html")
+
+# %%
+# Heat map over time - month
+CHI_map_time = folium.Map(
+    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
+
+# Create weight column, using date
+heat_df['Weight'] = pd.to_datetime(heat_df['CRASH_DATE']).dt.month
+# heat_df['Weight'] = heat_df['Weight'].astype(float).dropna()
+
+# List comprehension to make out list of lists
+heat_data = [[[row['LATITUDE'], row['LONGITUDE']] for _, row in heat_df[heat_df['Weight'] == i].iterrows()] for i in
+             range(1, 13)]
+
+# Plot it on the map
+hm = plugins.HeatMapWithTime(heat_data,
+                             auto_play=False,
+                             radius=2,
+                             position="topright",
+                             use_local_extrema=True
+                             )
+hm.add_to(CHI_map_time)
+CHI_map_time.save("./web/folium/heat_crashes_over_time_month.html")
+
+# %%
