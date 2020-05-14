@@ -12,15 +12,20 @@
 import pandas as pd
 import datetime
 import numpy as np
+import folium
+from bokeh.palettes import Category20, Category20b, Turbo256, Reds
+# import seaborn as sns
 
 # %%
 # Load the Crashes data set:
-data = pd.read_csv('./data/Traffic_Crashes_-_Crashes.csv')
+data = pd.read_csv('../data/Traffic_Crashes_-_Crashes.csv')
 
 # %%
 # Filter to only consider rows where CRASH_DATE is within the year of 2019
-is_after_start_date = datetime.date(2019, 1, 1) <= pd.to_datetime(data['CRASH_DATE']).dt.date
-is_before_end_date = pd.to_datetime(data['CRASH_DATE']).dt.date < datetime.date(2020, 1, 1)
+is_after_start_date = datetime.date(
+    2019, 1, 1) <= pd.to_datetime(data['CRASH_DATE']).dt.date
+is_before_end_date = pd.to_datetime(
+    data['CRASH_DATE']).dt.date < datetime.date(2020, 1, 1)
 
 # %% [markdown]
 # As the location of each crash plays an important role in this project,
@@ -45,7 +50,8 @@ data = data.drop(columns=filter_columns)
 
 # %%
 # Create a new .csv file that only contains data from 2019
-data.loc[is_after_start_date & is_before_end_date].to_csv('data/crashes_2019.csv', index=False)
+data.loc[is_after_start_date & is_before_end_date].to_csv(
+    '../data/crashes_2019.csv', index=False)
 data = None
 
 # %% [markdown]
@@ -56,16 +62,20 @@ data = None
 #
 # %%
 # Load the Congestion data set:
-data = pd.read_csv('./data/Chicago_Traffic_Tracker_-_Historical_Congestion_Estimates_by_Region_-_2018-Current.csv')
+data = pd.read_csv(
+    '../data/Chicago_Traffic_Tracker_-_Historical_Congestion_Estimates_by_Region_-_2018-Current.csv')
 
 # %%
 # Filter to only consider rows where TIME is within the year of 2019
-is_after_start_date = datetime.date(2019, 1, 1) <= pd.to_datetime(data['TIME']).dt.date
-is_before_end_date = pd.to_datetime(data['TIME']).dt.date < datetime.date(2020, 1, 1)
+is_after_start_date = datetime.date(
+    2019, 1, 1) <= pd.to_datetime(data['TIME']).dt.date
+is_before_end_date = pd.to_datetime(
+    data['TIME']).dt.date < datetime.date(2020, 1, 1)
 
 # %%
 # Create a new .csv file that only contains data from 2019
-data.loc[is_after_start_date & is_before_end_date].to_csv('data/congestion_2019.csv', index=False)
+data.loc[is_after_start_date & is_before_end_date].to_csv(
+    '../data/congestion_2019.csv', index=False)
 data = None
 
 # %% [markdown]
@@ -83,7 +93,7 @@ data = None
 #
 # %%
 # Load the Congestion 2019 data set
-congestion_data = pd.read_csv('./data/congestion_2019.csv')
+congestion_data = pd.read_csv('../data/congestion_2019.csv')
 
 # %%
 # Extract a list of unique region IDs
@@ -94,7 +104,8 @@ region_ids = congestion_data['REGION_ID'].unique()
 
 regions = []
 for region_id in region_ids:
-    region_specimen = congestion_data.loc[congestion_data['REGION_ID'] == region_id].iloc[0]
+    region_specimen = congestion_data.loc[congestion_data['REGION_ID']
+                                          == region_id].iloc[0]
     nw_loc = (region_specimen['WEST'], region_specimen['NORTH'])
     se_loc = (region_specimen['EAST'], region_specimen['SOUTH'])
     regions.append({
@@ -104,15 +115,20 @@ for region_id in region_ids:
     })
 
 # %%
+
+
 def is_crash_in_region(crash_loc, region_nw_loc, region_se_loc):
     """Given the location of a crash and the corners of a region, return true if the crash took place within the region, false otherwise."""
-    foo = min(region_nw_loc[0], region_se_loc[0]) < crash_loc[0] < max(region_nw_loc[0], region_se_loc[0])
-    bar = min(region_nw_loc[1], region_se_loc[1]) < crash_loc[1] < max(region_nw_loc[1], region_se_loc[1])
+    foo = min(region_nw_loc[0], region_se_loc[0]) < crash_loc[0] < max(
+        region_nw_loc[0], region_se_loc[0])
+    bar = min(region_nw_loc[1], region_se_loc[1]) < crash_loc[1] < max(
+        region_nw_loc[1], region_se_loc[1])
     return foo and bar
+
 
 # %%
 # Load the Crashes 2019 data set
-crashes_data = pd.read_csv('./data/crashes_2019.csv')
+crashes_data = pd.read_csv('../data/crashes_2019.csv')
 N = len(crashes_data)
 
 # %%
@@ -132,13 +148,71 @@ crashes_data['REGION_ID'] = crashes_region_ids
 
 # %%
 # Write a new version of the data set to disk
-crashes_data.to_csv('data/crashes_2019_regions.csv', index=False)
+crashes_data.to_csv('../data/crashes_2019_regions.csv', index=False)
 
 # %% [markdown]
 # ### Basic statistics
 #
-# > TODO: Insert map with region numbers
-#
+
+# %%
+crashes = pd.read_csv("../data/crashes_2019_regions.csv")
+regions = pd.read_csv("../data/congestion_2019.csv")
+
+# %%
+cols = ['LATITUDE', 'LONGITUDE', 'REGION_ID']
+locations = crashes.loc[:, cols]
+
+# %%
+# Calculate center for each region
+region_idx = np.sort(regions.REGION_ID.unique())
+centers = []
+for i in region_idx:
+    # First row for the region
+    regions[(regions.REGION_ID == 2)].iloc[0]
+    north = regions[(regions.REGION_ID == i)].iloc[0].NORTH
+    south = regions[(regions.REGION_ID == i)].iloc[0].SOUTH
+    east = regions[(regions.REGION_ID == i)].iloc[0].EAST
+    west = regions[(regions.REGION_ID == i)].iloc[0].WEST
+    centers.append({
+        'id': i,
+        'center_x': (east + west)/2,
+        'center_y': (north+south)/2
+    })
+# %%
+# idx = np.arange(0, 255, int(256 / 29))
+# colors = np.array(Turbo256)[idx]
+colors = np.append(Category20[20], Category20b[10])
+lon = -87.6298
+lat = 41.8281
+CHI_map = folium.Map([lat, lon], tiles="Stamen Toner", zoom_start=10.5)
+
+for i, row in locations.iterrows():
+    region = row.REGION_ID
+    if region == -1:
+        continue
+    # if i > 5000:
+    #     break
+
+    loc = (row['LATITUDE'], row['LONGITUDE'])
+    folium.CircleMarker((loc[0], loc[1]),
+                        radius=.15,
+                        fill=True,
+                        opacity=.6,
+                        color=colors[int(row.REGION_ID)]).add_to(CHI_map)
+
+for region in centers:
+    folium.Marker(location=(region["center_y"], region["center_x"]),
+                  icon=folium.DivIcon(
+        html=f"""<div style="background-color:rgba(255,255,255,.7); border-radius:50%; width:20px">
+                                    <div style="color:black; font-size:14px; width:fit-content; margin:auto; font-weight: 600">{region["id"]}</div>
+                                </div>""")
+    ).add_to(CHI_map)
+# CHI_map.save("../web/folium/chi_regions.html")
+# %% [markdown]
+# To see the map, go to [this page](https://chicago-traffic.netlify.app)
+# %%
 # > TODO: Basic stats bokeh plots
 # %%
 
+
+# %%
