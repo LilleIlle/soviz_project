@@ -1,4 +1,4 @@
-# 1. References
+# 8. References
 
 Segel, E., & Heer, J. (2010). Narrative visualization: Telling stories with data. IEEE transactions on visualization and computer graphics, 16(6), 1139-1148.
 
