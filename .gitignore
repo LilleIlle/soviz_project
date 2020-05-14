@@ -15,3 +15,5 @@ mi_ignore
 
 # Huuuuuuuge HTML file
 web/folium/chi_regions.html
+
+web/node_modules

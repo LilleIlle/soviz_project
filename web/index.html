@@ -220,7 +220,7 @@
     </script>
     <script>
       const handleIntersect = (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.src = entry.target.dataset.src;
             observer.unobserve(entry.target);
@@ -229,7 +229,7 @@
       };
 
       let observer = new IntersectionObserver(handleIntersect);
-      document.querySelectorAll("iframe").forEach(el => {
+      document.querySelectorAll("iframe").forEach((el) => {
         observer.observe(el);
       });
     </script>
