@@ -96,7 +96,6 @@ output_file("./web/bokeh/region_avg_speed_bar_chart.html")
 
 congestion = pd.read_csv("./data/congestion_2019.csv")
 avg_speed = congestion.groupby('REGION_ID')['SPEED'].mean().sort_values()
-#crashes = crashes[crashes['REGION_ID']!=-1]
 counts = None
 counts = avg_speed
 
