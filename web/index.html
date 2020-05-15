@@ -79,8 +79,8 @@
     <p class="intro-p">
       In the following, these are referred to as the <em>Crashes</em> and
       <em>Congestion</em>
-      data sets, respectively. Both sets are freely available via <a href="https://data.cityofchicago.org">Chicago Data Portal</a
-        >
+      data sets, respectively. Both sets are freely available via
+      <a href="https://data.cityofchicago.org">Chicago Data Portal</a>.
     </p>
     <p class="intro-p">
       The Crashes data set contains location as well as a multitude of meta data
@@ -145,19 +145,20 @@
     <section>
       <h2>Primary Contributory Cause</h2>
       <p>
-        One interesting attribute of the Crashes data set is the 'PRIMARY
-        CONTRIBUTORY CAUSE'. The figure above shows the distribution of causes
-        over all crashes of 2019. It is seen that the two most common causes by
-        far are 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. The
-        large range in number of crashes in the figure makes it difficult to
-        read the values of the left most part, this can be remedied by using a
-        log scale for the y-axis:
+        One interesting attribute of the Crashes data set is the
+        <code>PRIMARY CONTRIBUTORY CAUSE</code>. The figure above shows the
+        distribution of causes over all crashes of 2019. It is seen that the two
+        most common causes by far are
+        <code>FAILING TO YIELD RIGHT-OF-WAY</code> and
+        <code>FOLLOWING TOO CLOSELY</code>. The large range in number of crashes
+        in the figure makes it difficult to read the values of the left most
+        part, this can be remedied by using a log scale for the y-axis:
       </p>
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="1066"
+          width="1066"
           data-src="bokeh/primary_cause_bar_chart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -181,8 +182,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="1066"
+          width="1066"
           data-src="bokeh/primary_cause_bar_chart_log.html"
         ></iframe>
         <div class="iframe-loading">
@@ -216,8 +217,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="516"
+          width="716"
           data-src="bokeh/region_bar_chart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -304,8 +305,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="516"
+          width="716"
           data-src="bokeh/region_avg_speed_bar_chart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -340,8 +341,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="456"
+          width="816"
           data-src="bokeh/months_barchart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -372,8 +373,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="456"
+          width="616"
           data-src="bokeh/days_barchart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -407,8 +408,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="466"
+          width="816"
           data-src="bokeh/hours_barchart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -473,8 +474,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="466"
+          width="816"
           data-src="bokeh/hours_congestion_barchart.html"
         ></iframe>
         <div class="iframe-loading">
@@ -508,8 +509,8 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
-          width="600"
+          height="466"
+          width="816"
           data-src="bokeh/hours_barchart_weekend.html"
         ></iframe>
         <div class="iframe-loading">
@@ -543,7 +544,7 @@
       <div class="iframe-wrapper">
         <iframe
           class="map"
-          height="750"
+          height="600"
           width="600"
           data-src="bokeh/crash_count_vs_avg_speed.html"
         ></iframe>
@@ -620,6 +621,7 @@
     <section>
       <h2>Serious Crashes</h2>
       <p>
+<<<<<<< HEAD
         If we mentally visualize downtown Chicago traffic—or perhaps the traffic of just about any big city—chances are you will see a quite hectic image with pedestrians, cars, scooters
         and bikes intertwined in a chaotic, yet calm flow. In the following we will investigate
         if downtown Chicago sees the most serious traffic crashes as well.
@@ -633,6 +635,22 @@
         North Cicero Avenue has the highest amount of fatal traffic accidents,
         the former being a large street west of the Chicago Loop and North
         Cicerone Avenue is slightly north from West Madison Street.
+=======
+        If we mentally visualize downtown Chicago traffic—or perhaps the traffic
+        of just about any big city— chances are you will see a quite hectic
+        image with pedestrians, cars, scooters and bikes intertwined in a
+        chaotic, yet calm flow. In the following we will investigate if downtown
+        Chicago sees the most serious traffic crashes as well. Instead of
+        looking at the location for all crashes, we now to investigate where the
+        more severe crashes take place. First, we look at crashes with a fatal
+        outcome for at least one person. The distribution of these crashes can
+        be seen on the figure below. An interesting observation is that the
+        density of fatal crashes is higher in areas away from the Chicago Loop,
+        i.e. downtown Chicago. Notably, West Madison Street and North Cicero
+        Avenue has the highest amount of fatal traffic accidents, the former
+        being a large street west of the Chicago Loop and North Cicerone Avenue
+        is slightly north from West Madison Street.
+>>>>>>> 85773c6dab520e908152b2d842b9766c053411a6
       </p>
       <div class="iframe-wrapper">
         <iframe
