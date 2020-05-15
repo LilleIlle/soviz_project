@@ -104,12 +104,11 @@
     <section>
       <h2>Regions of Chicago</h2>
       <p>
-        Ut metus dui, finibus nec tortor eu, sollicitudin vehicula arcu. Ut
-        porta nunc elementum eros lacinia fermentum. Mauris mattis elit feugiat,
-        commodo metus hendrerit, fringilla lacus. Aenean nisi nunc, feugiat nec
-        enim ac, rhoncus malesuada dolor. Cras pulvinar ultricies ex quis
-        tincidunt. Etiam dictum laoreet massa quis blandit. Morbi non congue
-        leo. Etiam quis eleifend lacus.
+        Chicago is divided into 29 regions in order to estimate traffic
+        congestion around the city. To visualize this partition, all crashes has
+        been plotted with a unique color for each region. To ease the relation
+        between future findings and location of the regions, the unique IDs are
+        added to the figure.
       </p>
       <div class="iframe-wrapper">
         <iframe
@@ -124,6 +123,45 @@
         <a
           class="fullscreen-btn"
           href="./folium/Regions_with_id.png"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Primary Contributory Cause</h2>
+      <p>
+        One interesting attribute of the Crashes data set is the 'PRIMARY
+        CONTRIBUTORY CAUSE'. The figure above shows the distribution of causes
+        over all crashes of 2019. It is seen that the two most common causes by
+        far are 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. The
+        large range in number of crashes in the figure makes it difficult to
+        read the values of the left most part. The tooltip functionality of
+        Bokeh is of no use because the bars are so small. This can be remedied
+        by using a log scale for the y-axis:
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="bokeh/primary_cause_bar_chart.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="bokeh/primary_cause_bar_chart.html"
           target="_blank"
           title="View fullscreen"
           ><img src="assets/icons/fullscreen.svg"
