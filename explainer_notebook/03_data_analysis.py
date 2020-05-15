@@ -436,7 +436,10 @@ if dev:
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal_and_incapacitating.html' height='750' width='1000'></iframe>"))
 
 # %% [markdown]
-# TODO: fatal and incap
+
+# Since the amount of crashes with fatal consequences are relatively small, the criteria for a *severe crash* is expanded to also include crashes with an incapacitating outcome for at least one person. The distribution for these crashes can be seen on the heat map above.
+# It is noted that severe crashes – with fatal or incapacitating consequences – is spread all over the city, but with some high-density areas.
+
 # %%
 
 
@@ -461,7 +464,6 @@ def calc_color(data):
 # %%
 if dev:
     # Calculating the ratio for fatal and incapacitating crashes
-    # TODO: Insert text
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
     crashes = crashes[crashes['REGION_ID'] != -1]
     region_crashes = crashes.groupby(
@@ -527,4 +529,5 @@ if dev:
 Image("../web/folium/pngs/plplot.png")
 # %%
 Image("../web/folium/pngs/regions_fatal_incap.png")
-# %%
+# %% [markdown]
+# TODO: regions fatal
