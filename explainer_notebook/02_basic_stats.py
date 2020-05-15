@@ -333,7 +333,7 @@ if dev:
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
-               y_axis_label='Number of crashes',
+               y_axis_label='Number of Crashes',
                x_axis_label='Region',
                min_border_right=150)
 
