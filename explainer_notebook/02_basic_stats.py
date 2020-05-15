@@ -399,7 +399,11 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_avg_
 # The figure above shows the average speed for public transportation buses for all 29 regions for 2019.
 # It is seen that buses servicing the region _Chicago Loop_ (with ID 13) has the lowest average speed,
 # whereas buses in the region _Washington Hts-Roseland-Pullman_ (with ID 26) has the highest average speed.
-
-# The average speed of the buses is considered a measure for the level of traffic congestion across the regions.
-# It is hypothesized that the level of congestion is correlated to the amount of traffic on the
+# Chicago Loop is Chicago's official downtown area, which is "celebrated for its dynamic architecture and big city buzz" according
+# to the tourist web site https://www.choosechicago.com/. It features a high population density of 8200/km<sup>2</sup> (according to this report https://www.cmap.illinois.gov/documents/10180/126764/The+Loop.pdf from Chicago Metropolitan Agency for Planning (CMAP).
+# On the other hand, suburban areas further away from the Loop, e.g. _Washington Hts-Roseland-Pullman_ (with ID 26) with the highest average speed,
+# has a much lower population density with 3373/km<sup>2</sup> (according to this report https://www.cmap.illinois.gov/documents/10180/126764/Roseland.pdf also from CMAP).
+# The average speed of the buses is considered a measure for the level of traffic congestion across the regions, as the level of congestion is correlated to the amount of traffic on the
 # streets—the lower the average speed, the more vehicles on the streets.
+# In summarize, we see higher average speed outside downtown Chicago as these areas has less traffic congestion , not least due to
+# much lower population density. Later we will consider the severity (i.e. the mortality and injuries suffered) in the different regions.
