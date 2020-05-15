@@ -11,3 +11,4 @@ In Figure X of Section 3 a scatter chart is used to investigate the correlation 
 
 For geospatial data, map visualizations are naturally used to convey the locality of crashes as well
 as heat maps showing the concentration of various events.
+For showing the temporal development of crashes, some of the maps are augmented with animations scrubbing through time.
