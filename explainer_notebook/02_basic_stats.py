@@ -259,9 +259,9 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause_bar_chart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
-# One interesting attribute of the Crashes data set is the _primary contributory cause_ (PCC).
-# The figure above shows the distribution of PCCs over all crashes of 2019.
-# It is seen that the two most common PCCs are _failing to yield right-of-way_ and _following too closely_.
+# One interesting attribute of the Crashes data set is the 'PRIMARY CONTRIBUTORY CAUSE'.
+# The figure above shows the distribution of causes over all crashes of 2019.
+# It is seen that the two most common causes by far are 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'.
 
 # The large range in number of crashes in the figure makes it difficult to read the values of the left most part.
 # The tooltip functionality of Bokeh is of no use because the bars are so small.
