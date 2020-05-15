@@ -402,6 +402,8 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal
 # Instead of solely looking at the location for all crashes, we wanted therefore wanted to investigate where the more severe crashes take place.
 # First we look at crashes with a fatal outcome for at least one person. The distribution of these crashes can be seen on the figure above.
 # An interesting observation is that the density of fatal crashes is higher in areas away from the Chicago Loop.
+# Notably, around West Madison Street and North Cicero Avenue has the highest amount of fatal traffic accidents, the former being
+# a large street west of the Chicago Loop and North Cicerone Avenue is slightly north from West Madison Street.
 # %%
 if dev:
     # Static heat map incapacitating
@@ -437,8 +439,10 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal
 
 # %% [markdown]
 
-# Since the amount of crashes with fatal consequences are relatively small, the criteria for a *severe crash* is expanded to also include crashes with an incapacitating outcome for at least one person. The distribution for these crashes can be seen on the heat map above.
+# Since the amount of crashes with fatal consequences are relatively small, the criteria for a *severe crash* is expanded to also include crashes with an incapacitating outcome for at least one person.
+# The distribution for these crashes can be seen on the heat map above.
 # It is noted that severe crashes – with fatal or incapacitating consequences – is spread all over the city, but with some high-density areas.
+# These areas include the before-mentioned streets but now also the Chicago Loop where a large amount of incapacitating traffic accidents occur.
 
 # %%
 
