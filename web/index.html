@@ -8,11 +8,11 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
@@ -229,6 +229,39 @@
         <p class="caption__title">Figure X</p>
         <p class="caption__body">
           Distribution of crashes over the 29 regions of chicago.
+        </p>
+      </div>
+
+      <p>
+        On the heat map below it can be seen how all crashes in our data set is
+        distributed around the city. It is clear that the highest density of
+        crashes is centered around the harbor. Looking at the
+        <em>regions plot</em> from earlier we can see that the concerned regions
+        are 12, 13 and 29, i.e. the Chicago Loop discussed earlier.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="folium/heat_crashes.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="folium/heat_crashes.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
         </p>
       </div>
 
@@ -456,6 +489,91 @@
       </div>
     </section>
 
+    <section>
+      <h2>Crashes vs Speed</h2>
+      <p>
+        From the previous plot, we got the hypothesis that the regions that
+        generally had lower average speed would have more crashes. From the
+        scatter plot above, however, we see there is no evident tendency in
+        region average speed and amount of crashes.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="bokeh/crash_count_vs_avg_speed.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="bokeh/crash_count_vs_avg_speed.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
+        </p>
+      </div>
+    </section>
+
+    <!-- Primary Cause of Crashes Throughout the Day -->
+    <section>
+      <h2>Primary Cause of Crashes Throughout the Day</h2>
+      <p>
+        To further understand what causes the crashes throughout the hours of
+        the day, we have made the interactive bar chart above where the reader
+        can enable and disable primary causes for a crash and see the
+        distribution throughout the day. Note that we have filtered the causes
+        <code>UNABLE TO DETERMINE</code> as well as
+        <code>NOT APPLICABLE</code> as well as causes that have been registered
+        150 times or less. We have applied a log-scale y-axis as there is a
+        large difference in frequency in the different causes; the two most
+        common being <code>FAILING TO YIELD RIGHT-OF-WAY</code> and
+        <code>FOLLOWING TOO CLOSELY</code>. However, not all causes follow the
+        general curve of crashes. Notably,
+        <code
+          >UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS
+          EFFECTED)</code
+        >
+        is practically the opposite peaking around 23–4. Also some of the causes
+        that are largely caused by circumstances outside the control of the
+        driver such as
+        <code>VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.)</code>,
+        <code>ROAD CONSTRUCTION/MAINTENANCE</code> and
+        <code>ROAD ENGINEERING/SURFACE/MARKING DEFECTS</code> see a more uniform
+        frequency throughout the day from 8 till around 20–22. This implies that
+        drivers are more likely to be involved in crashes caused by common human
+        errors in rush hour, likely as they are stressed and slack on safety on
+        account of that.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="plot plot--wide"
+          height="750"
+          data-src="bokeh/primary_cause.html"
+        ></iframe>
+        <a
+          class="fullscreen-btn"
+          href="./bokeh/primary_cause.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="bokeh/primary_cause.html"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">Primary Cause of Crashes Throughout the Day</p>
+      </div>
+    </section>
+
     <!--    Old........................-->
 
     <!-- Crashes Heat Map -->
@@ -566,36 +684,6 @@
         <p class="caption__body">
           Number of Crashes vs Avg. Speed for All 29 Regions.
         </p>
-      </div>
-    </section>
-
-    <!-- Primary Cause of Crashes Throughout the Day -->
-    <section>
-      <h2>Primary Cause of Crashes Throughout the Day</h2>
-      <p>
-        Ut metus dui, finibus nec tortor eu, sollicitudin vehicula arcu. Ut
-        porta nunc elementum eros lacinia fermentum. Mauris mattis elit feugiat,
-        commodo metus hendrerit, fringilla lacus. Aenean nisi nunc, feugiat nec
-        enim ac, rhoncus malesuada dolor. Cras pulvinar ultricies ex quis
-        tincidunt.
-      </p>
-      <div class="iframe-wrapper">
-        <iframe
-          class="plot plot--wide"
-          height="750"
-          data-src="./bokeh/primary_cause.html"
-        ></iframe>
-        <a
-          class="fullscreen-btn"
-          href="./bokeh/primary_cause.html"
-          target="_blank"
-          title="View fullscreen"
-          ><img src="assets/icons/fullscreen.svg"
-        /></a>
-      </div>
-      <div class="caption">
-        <p class="caption__title">Figure X</p>
-        <p class="caption__body">Primary Cause of Crashes Throughout the Day</p>
       </div>
     </section>
 
