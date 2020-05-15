@@ -20,7 +20,7 @@ from bokeh.plotting import figure
 from bokeh.transform import dodge
 import math
 import bokeh
-
+from IPython.display import Image
 # %%
 # Load the Crashes data set:
 data = pd.read_csv('../data/Traffic_Crashes_-_Crashes.csv')
@@ -192,11 +192,11 @@ lat = 41.8281
 CHI_map = folium.Map([lat, lon], tiles="Stamen Toner", zoom_start=10.5)
 
 for i, row in locations.iterrows():
+    # TODO: Only for hand-in..
+    break
     region = row.REGION_ID
     if region == -1:
         continue
-    # if i > 5000:
-    #     break
 
     loc = (row['LATITUDE'], row['LONGITUDE'])
     folium.CircleMarker((loc[0], loc[1]),
@@ -213,6 +213,7 @@ for region in centers:
                                 </div>""")
     ).add_to(CHI_map)
 # CHI_map.save("../web/folium/chi_regions.html")
+Image('../web/folium/pngs/regions.png')
 # %% [markdown]
 # To see the map, go to [this page](https://chicago-traffic.netlify.app)
 

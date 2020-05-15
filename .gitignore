@@ -15,5 +15,6 @@ mi_ignore
 
 # Huuuuuuuge HTML file
 web/folium/chi_regions.html
+web/folium/chi_regions_fatal_incap.html
 
 web/node_modules
