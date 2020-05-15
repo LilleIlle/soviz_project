@@ -97,6 +97,10 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/days_barchart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# Next up we look at the distribution of crashes throughout the days of the week as seen in the bar chart above. We
+# can see that the weekend has the most crashes peaking Saturday with 18,480 crashes. Monday has the lowest with 14,027 crashes.
+# This could be due to more traffic occurring during the weekend.
 # %%
 # > TODO: Heat map of weekly pattern
 #
@@ -138,6 +142,10 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# In the above plot, we look at the 24 hours of the day. Here we can clearly see that amount of crashes follow the initution of when
+# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8-9 am (to work) and then again
+# at 15-19 pm (home from work). From there on, we see a decreasing decline of crashes from 18 pm till 5 am.
 # %% [markdown]
 # ##############################################################################################################
 # ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
@@ -194,6 +202,10 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_congestion_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
+# To further understand the crash distribution of the day, here we see the same histogram as previously, but now with a trend line showing the
+# average speed in mph. It is clear that the two move inversely; when the crashes are low, average speed is high and vice versa. This verifies
+# the intuition that less average speed means cluttering which also means more traffic which finally means more crashes.
+# %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
@@ -246,6 +258,9 @@ if dev:
     output_file("../web/bokeh/crash_count_vs_avg_speed.html")
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count_vs_avg_speed.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# From the previous plot, we got the hypothesis that the regions that generally had lower average speed would have more
+# crashes. From the scatter plot above, however, we see there is no evident tendency in region average speed and amount of crashes.
 # %% [markdown]
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
