@@ -1,5 +1,7 @@
 # 7. Contributions
 
-* **Marco Illemann**:
-* **Rasmus Liebst**:
-* **Robert Karlsson**:
+### Main responsibilities:
+
+* **Marco Illemann**: Web-hosting, Map visualizations, Notebook Engineering
+* **Rasmus Suonperä Liebst**: Chart visualizations, Report writing
+* **Robert Marker Karlsson**: Data cleaning, Data preprocessing, Web-design
