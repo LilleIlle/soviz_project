@@ -2,7 +2,7 @@
 import folium
 import numpy as np
 import pandas as pd
-import seaborn as sns
+# import seaborn as sns
 from IPython.display import Image, display, HTML
 from bokeh.io import output_file, show, output_notebook
 from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
@@ -14,6 +14,9 @@ from folium.plugins import HeatMap
 dev = False
 # %% [markdown]
 # # 3. Data Analysis
+# In this section, we dive further into the data analysis we got an initial overview of in the previous section.
+# First, we will look at the temporality of crashes in Chicago. In the latter half, we will look further into the locations
+# of crashes (also with some temporal perspectives) to understand where different types of crashes occurs.
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
@@ -55,6 +58,11 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barchart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# To start off our temporal analysis, we look at the distribution of crashes over the months of year of 2019 as seen in the bar chart above.
+# Interestingly, we see that the summer months May till July has the highest number of crashes. May has the most crashes
+# with 10,584. The lowest was seen in February with 8,542 crashes. Our hypothesis prior to plotting was that the winter months had more crashes, but this plot
+# proved us otherwise. One explanation could be that the summer months see more traffic as it also tourist season.
 # %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
