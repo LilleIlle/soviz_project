@@ -333,7 +333,7 @@ if dev:
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
-               y_axis_label='Number of crashes',
+               y_axis_label='Number of Crashes',
                x_axis_label='Region',
                min_border_right=150)
 
@@ -345,7 +345,10 @@ if dev:
     #p.xaxis.ticker = list(range(1, 30))
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_bar_chart.html' height='750' width='1000'></iframe>"))
-
+# %% [markdown]
+# The figure above shows the distribution of crashes over all 29 regions for 2019.
+# It is seen that the region _South West Side_ (with ID 18) is suffering the most from crashes,
+# whereas _Riverdale-Hegewisch_ (with ID 28) is the region with the least crashes.
 # %%
 # BASIC REGION AVG SPEED BAR CHART
 if dev:
