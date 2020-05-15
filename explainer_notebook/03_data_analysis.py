@@ -570,7 +570,7 @@ Image("../web/folium/pngs/plplot.png")
 # %%
 Image("../web/folium/pngs/regions_fatal_incap.png")
 # %% [markdown]
-# We have established where the most crashes occur and also where the serious crashes take places in Chicago.
+# We have established where the most crashes occur and also where the serious crashes take place in Chicago.
 # Now we look further into where is the most most dangerous places of the city, i.e. when crashes do occur which regions tend to have the most serious crashes.
 # For this purpose, simply counting the severe crashes can be misleading due to the significant difference in the amount of crashes for each region.
 # To make a more accurate measure, we calculated the ratio of serious crashes (defined as crashes with at least one fatal or incapacitated person) for each region as follows:
@@ -578,13 +578,13 @@ Image("../web/folium/pngs/regions_fatal_incap.png")
 
 # On the plot above, we see a map of all regions colored after this ratio just described.
 
-# We see here that even though many crashes occur in region 12, 13, and 29, the Chicago Loop area, very few of them are severe-the frequency of serious crashes are in
-# category 1 (1.16%-1.35%) or category 2 (1.35%-1.49%).
+# We see here that even though many crashes occur in regions 12, 13, and 29, the Chicago Loop area, few of them are severe—the frequency of serious crashes are in
+# category 1 (1.16%–1.35%) or category 2 (1.35%–1.49%).
 # Note that we know from earlier research, that these regions are in fact the three regions with the *lowest* average speed,
 # i.e. the regions with the highest traffic congestion. This means that the areas with the highest congestion (and
 # arguably is the most "chaotic" to navigate) actually has the lowest amount of serious accidents.
 
-# In contrast, if we look at region 19, 22 and 24 that has the highest ratio of serious accidents with 2.16%-2.76%,
-# these are all three regions are in top 10 of *highest* average speed, i.e. low congestion areas (and less densely populated) that allows for higher speeds.
+# In contrast, if we look at regions 19, 22 and 24 that have the highest ratio of serious accidents with 2.16%–2.76%,
+# these are all regions in the top 10 of *highest* average speed, i.e. low congestion areas (and less densely populated) that allow for higher speeds.
 # Thus to conclude, the central areas see more frequent traffic crashes, however, these has the lowest ratio of serious accidents.
-# In contrast, in the subarban areas we see less frequent crashes, however, these tend to be more serious when they do happen.
+# In contrast, in the less central regions we see less frequent crashes, however, these tend to be more serious when they do happen.
