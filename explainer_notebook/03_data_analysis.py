@@ -316,6 +316,17 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# To further understand what causes the crashes throughout the hours of the day, we have made the interactive bar chart above where
+# the reader can enable and disable primary causes for a crash and see the distribution throughout the day. Note that we have filtered
+# the causes 'UNABLE TO DETERMINE' as well as 'NOT APPLICABLE' as well as causes that have been registered 150 times or less.
+# We have applied a log-scale y-axis as there is a large difference in frequency in the different causes; the two most common being
+# 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. However, not all causes follow the general curve of crashes.
+# Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23-4.
+# Also some of the causes that are largely caused by circumstances outside the control of the driver such as
+# 'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' AND 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
+# see are more uniform frequency throughout the day from 8 am till around 20-22 pm. This implies that drivers are more likely to be
+# involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.
 # %%
 # ##############################################################################################################
 # %%
