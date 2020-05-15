@@ -132,8 +132,8 @@ if dev:
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # In the above plot, we look at the 24 hours of the day. Here we can clearly see that the amount of crashes follows the intuition of when
-# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 a.m. (to work) and then again
-# at 15–19 p.m. (home from work). From there on, we see a decreasing decline of crashes from 18 p.m. till 5 a.m.
+# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 (to work) and then again
+# at 15–19 (home from work). From there on, we see a decreasing decline of crashes from 18-5.
 # %%
 if dev:
     congestion = pd.read_csv("../data/congestion_2019.csv")
@@ -226,7 +226,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barch
 # %% [markdown]
 # Above we again look at the hours of the day, but now only for the weekend. We see that the 8–9 spike is gone,
 # as less people are commuting to work. There is still lowest crash activity in the night hours. However,
-# in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 p.m. to midnight.
+# in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 to midnight.
 # %%
 if dev:
     region_crashes_tally = {3: 5199, 15: 4024, 18: 7739, 19: 4021, 2: 4114, 8: 6159, 26: 3923, 6: 4895, 7: 4922, 20: 3413,
@@ -340,7 +340,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cau
 # Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23–4.
 # Also some of the causes that are largely caused by circumstances outside the control of the driver such as
 # 'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' and 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
-# see a more uniform frequency throughout the day from 8 a.m. till around 20–22 p.m. This implies that drivers are more likely to be
+# see a more uniform frequency throughout the day from 8 till around 20–22. This implies that drivers are more likely to be
 # involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.
 # %%
 # %%
