@@ -54,7 +54,7 @@ if dev:
     p.y_range.start = 0
 
     show(p)
-display(HTML("<iframe src='../web/bokeh/months_barchart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
@@ -88,7 +88,7 @@ if dev:
     p.y_range.start = 0
 
     show(p)
-display(HTML("<iframe src='../web/bokeh/days_barchart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/days_barchart.html' height='750' width='1000'></iframe>"))
 # %%
 # > TODO: Heat map of weekly pattern
 #
@@ -129,7 +129,7 @@ if dev:
     p.xaxis.ticker = list(range(0, 24))
 
     show(p)
-display(HTML("<iframe src='../web/bokeh/hours_barchart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # ##############################################################################################################
 # ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
@@ -184,7 +184,7 @@ if dev:
     p.xaxis.ticker = list(range(0, 24))
 
     show(p)
-display(HTML("<iframe src='../web/bokeh/hours_congestion_barchart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_congestion_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
@@ -237,7 +237,7 @@ if dev:
     # Output to static HTML file
     output_file("../web/bokeh/crash_count_vs_avg_speed.html")
     show(p)
-display(HTML("<iframe src='../web/bokeh/crash_count_vs_avg_speed.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count_vs_avg_speed.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
@@ -292,7 +292,7 @@ if dev:
     p.y_range.start = 0
 
     show(p)
-display(HTML("<iframe src='../web/bokeh/primary_cause.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause.html' height='750' width='1000'></iframe>"))
 # %%
 # ##############################################################################################################
 # %%
@@ -317,7 +317,7 @@ if dev:
     HeatMap(data=heat_data, max_zoom=20, radius=12).add_to(CHI_map)
     CHI_map.save("../web/folium/heat_crashes.html")
     CHI_map
-display(HTML("<iframe src='../web/folium/heat_crashes.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crashes.html' height='750' width='1000'></iframe>"))
 # %%
 if dev:
     # Heat map over time - Hour
@@ -344,7 +344,7 @@ if dev:
     CHI_map_time.save("../web/folium/heat_crashes_over_time.html")
     CHI_map_time
 
-display(HTML("<iframe src='../web/folium/heat_crashes_over_time.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crashes_over_time.html' height='750' width='1000'></iframe>"))
 # %%
 if dev:
     # TODO: Insert text
@@ -361,7 +361,7 @@ if dev:
     HeatMap(data=heat_data, max_zoom=15, radius=25).add_to(CHI_map)
     CHI_map.save("../web/folium/heat_fatal.html")
     CHI_map
-display(HTML("<iframe src='../web/folium/heat_fatal.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000>"))
 # %%
 if dev:
     # TODO: Insert text
@@ -376,7 +376,7 @@ if dev:
     HeatMap(data=heat_data, max_zoom=15, radius=13).add_to(CHI_map)
     CHI_map.save("../web/folium/heat_incapacitating.html")
     CHI_map
-display(HTML("<iframe src='../web/folium/heat_incapacitating.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_incapacitating.html' height='750' width='1000'></iframe>"))
 
 # %%
 if dev:
@@ -393,7 +393,7 @@ if dev:
     HeatMap(data=heat_data, max_zoom=14, radius=12).add_to(CHI_map)
     CHI_map.save("../web/folium/heat_fatal_and_incapacitating.html")
     CHI_map
-display(HTML("<iframe src='../web/folium/heat_fatal_and_incapacitating.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal_and_incapacitating.html' height='750' width='1000'></iframe>"))
 
 # %%
 
@@ -482,6 +482,7 @@ if dev:
         ).add_to(CHI_map)
     CHI_map.save("../web/folium/chi_regions_fatal_incap.html")
 # %%
-    Image("../web/folium/pngs/plplot.png")
+Image("../web/folium/pngs/plplot.png")
 # %%
-    Image("../web/folium/pngs/regions_fatal_incap.png")
+Image("../web/folium/pngs/regions_fatal_incap.png")
+# %%

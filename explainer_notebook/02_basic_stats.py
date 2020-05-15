@@ -53,7 +53,8 @@ if dev:
 #
 # %%
 # Filter out rows where LOCATION is nan
-data = data.dropna(subset=['LOCATION'])
+if dev:
+    data = data.dropna(subset=['LOCATION'])
 
 # %% [markdown]
 #
@@ -255,7 +256,7 @@ if dev:
     p.y_range.start = 0
     #plots = bokeh.gridplot([[p]], sizing_mode='scale_width')
     show(p)
-display(HTML("<iframe src='../web/bokeh/primary_cause_bar_chart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause_bar_chart.html' height='750' width='1000'></iframe>"))
 # %%
 # BASIC PRIMARY CAUSE PLOT (LOG Y-AXIS)
 if dev:
@@ -289,7 +290,7 @@ if dev:
     p.xaxis.major_label_orientation = -0.4 * math.pi/2
     p.y_range.start = 10**(0)
     show(p)
-display(HTML("<iframe src='../web/bokeh/primary_cause_bar_chart_log.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause_bar_chart_log.html' height='750' width='1000'></iframe>"))
 # %%
 # BASIC REGION CRASH BAR CHART
 if dev:
@@ -331,7 +332,7 @@ if dev:
     p.xaxis.major_label_orientation = -0.4 * math.pi/2
     #p.xaxis.ticker = list(range(1, 30))
     show(p)
-display(HTML("<iframe src='../web/bokeh/region_bar_chart.html' height='750' width='600'></iframe>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_bar_chart.html' height='750' width='1000'></iframe>"))
 
 # %%
 # BASIC REGION AVG SPEED BAR CHART
@@ -378,7 +379,4 @@ if dev:
     p.xaxis.major_label_orientation = -0.4 * math.pi/2
     #p.xaxis.ticker = list(range(1, 30))
     show(p)
-display(HTML("<iframe src='../web/bokeh/region_avg_speed_bar_chart.html' height='750' width='600'></iframe>"))
-
-
-# %%
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_avg_speed_bar_chart.html' height='750' width='1000'></iframe>"))
