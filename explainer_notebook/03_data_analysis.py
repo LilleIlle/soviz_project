@@ -16,7 +16,7 @@ dev = False
 # # 3. Data Analysis
 # In this section, we dive further into the data analysis we got an initial overview of in the previous section.
 # First, we will look at the temporality of crashes in Chicago. In the latter half, we will look further into the locations
-# of crashes (also with some temporal perspectives) to understand where different types of crashes occurs.
+# of crashes (also with some temporal perspectives) to understand where different types of crashes occur.
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
@@ -59,10 +59,10 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
-# To start off our temporal analysis, we look at the distribution of crashes over the months of year of 2019 as seen in the bar chart above.
+# To start off our temporal analysis, we look at the distribution of crashes over the months of the year of 2019 as seen in the bar chart above.
 # Interestingly, we see that the summer months May till July has the highest number of crashes. May has the most crashes
 # with 10,584. The lowest was seen in February with 8,542 crashes. Our hypothesis prior to plotting was that the winter months had more crashes, but this plot
-# proved us otherwise. One explanation could be that the summer months see more traffic as it also tourist season.
+# proved us wrong. One explanation could be that the summer months see more traffic as it is tourist season.
 # %% [markdown]
 # ### CRASH COUNT DAYS PLOT
 # %%
@@ -141,9 +141,9 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
-# In the above plot, we look at the 24 hours of the day. Here we can clearly see that amount of crashes follow the initution of when
-# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8-9 am (to work) and then again
-# at 15-19 pm (home from work). From there on, we see a decreasing decline of crashes from 18 pm till 5 am.
+# In the above plot, we look at the 24 hours of the day. Here we can clearly see that the amount of crashes follows the intuition of when
+# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 a.m. (to work) and then again
+# at 15–19 p.m. (home from work). From there on, we see a decreasing decline of crashes from 18 p.m. till 5 a.m.
 # %% [markdown]
 # ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
 # %%
@@ -235,9 +235,9 @@ p.xaxis.ticker = list(range(0, 24))
 
 show(p)
 # %% [markdown]
-# Above we again look at the hours of the day, but now only for the weekend. We see that the 8-9 spike is gone,
-# as less people are commuting to work. There is still lowest crash activity in the night hours, however, the
-# there the decline is now much slower, and there is now a fairly steady amount of crashes from 20 pm to midnight.
+# Above we again look at the hours of the day, but now only for the weekend. We see that the 8–9 spike is gone,
+# as less people are commuting to work. There is still lowest crash activity in the night hours. However,
+# in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 p.m. to midnight.
 # %% [markdown]
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
@@ -353,10 +353,10 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cau
 # the causes 'UNABLE TO DETERMINE' as well as 'NOT APPLICABLE' as well as causes that have been registered 150 times or less.
 # We have applied a log-scale y-axis as there is a large difference in frequency in the different causes; the two most common being
 # 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. However, not all causes follow the general curve of crashes.
-# Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23-4.
+# Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23–4.
 # Also some of the causes that are largely caused by circumstances outside the control of the driver such as
-# 'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' AND 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
-# see are more uniform frequency throughout the day from 8 am till around 20-22 pm. This implies that drivers are more likely to be
+# 'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' and 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
+# see a more uniform frequency throughout the day from 8 a.m. till around 20–22 p.m. This implies that drivers are more likely to be
 # involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.
 # %%
 # %%
