@@ -218,8 +218,8 @@ if dev:
     # CHI_map.save("../web/folium/chi_regions.html")
 Image('../web/folium/pngs/regions.png')
 # %% [markdown]
-# To see the map, go to [this page](https://chicago-traffic.netlify.app)
-
+# As described in the *Motivation* section, Chicago is divided into 29 regions in order to estimate traffic congestion around the city.
+# All crashes has been plotted with a unique color for each region to visualize this partition.
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
