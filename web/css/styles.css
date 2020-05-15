@@ -74,6 +74,12 @@ iframe {
   opacity: 1;
 }
 
+code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .fullscreen-btn {
   position: absolute;
   top: 15px;
