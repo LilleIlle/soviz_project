@@ -259,7 +259,8 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count_vs_avg_speed.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
-# 
+# From the previous plot, we got the hypothesis that the regions that generally had lower average speed would have more
+# crashes. From the scatter plot above, however, we see there is no evident tendency in region average speed and amount of crashes.
 # %% [markdown]
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
