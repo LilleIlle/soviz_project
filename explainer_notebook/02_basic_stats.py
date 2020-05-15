@@ -244,7 +244,7 @@ if dev:
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
-               y_axis_label='Number of crashes',
+               y_axis_label='Number of Crashes',
                min_border_right=250)
     # frame_width=1600)
     # y_axis_type="log")
@@ -288,7 +288,7 @@ if dev:
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
-               y_axis_label='Number of crashes',
+               y_axis_label='Number of Crashes',
                y_axis_type="log",
                min_border_right=250)
 
