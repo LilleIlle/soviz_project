@@ -45,6 +45,9 @@
           width="600"
           data-src="./folium/Regions_with_id.png"
         ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
         <a
           class="fullscreen-btn"
           href="./folium/Regions_with_id.png"
@@ -80,6 +83,9 @@
           width="600"
           data-src="./folium/heat_crashes.html"
         ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
         <a
           class="fullscreen-btn"
           href="./folium/heat_crashes.html"
@@ -116,6 +122,9 @@
           width="600"
           data-src="./folium/heat_crashes_over_time.html"
         ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
         <a
           class="fullscreen-btn"
           href="./folium/heat_crashes_over_time.html"
@@ -221,8 +230,10 @@
       const handleIntersect = (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.src = entry.target.dataset.src;
-            observer.unobserve(entry.target);
+            const target = entry.target;
+            target.nextElementSibling.style.opacity = 0;
+            target.src = target.dataset.src;
+            observer.unobserve(target);
           }
         });
       };

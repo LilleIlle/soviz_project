@@ -52,6 +52,19 @@ iframe {
   border: none;
 }
 
+.iframe-loading {
+  position: absolute;
+  top: 26px;
+  left: 2px;
+  background-color: white;
+  border-radius: 4px;
+  width: calc(100% - 52px);
+  height: calc(100% - 104px);
+  padding: 24px;
+  transition: opacity 1s 2s linear;
+  opacity: 1;
+}
+
 .fullscreen-btn {
   position: absolute;
   top: 15px;
