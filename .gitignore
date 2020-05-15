@@ -11,6 +11,7 @@ Soviz.code-workspace
 rmk_ignore
 mi_ignore/*
 !mi_ignore/project.ipynb
+!mi_ignore/project.html
 rsl_ignore
 .ipynb_checkpoints
 
