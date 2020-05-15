@@ -70,7 +70,7 @@ iframe {
   width: calc(100% - 52px);
   height: calc(100% - 104px);
   padding: 24px;
-  transition: opacity 1s 2s linear;
+  transition: opacity 1s 1s linear;
   opacity: 1;
 }
 
