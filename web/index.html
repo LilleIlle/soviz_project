@@ -25,7 +25,7 @@
     <p class="intro-txt">
       The City of Chicago is America's third-most-populous city and is one of
       the largest transportation centers in America. In the following, we take a
-      deep dive into <i>all</i> of police registered traffic crashes of 2019-is
+      deep dive into <i>all</i> of police registered traffic crashes of 2019—is
       it safe to drive in Chicago's hectic traffic life?
     </p>
     <a
@@ -55,10 +55,10 @@
       patterns of traffic, e.g. how investigating which times of the day sees
       the most crashes.
     </p>
-    <p>
+    <p class="intro-p">
       Two data sets are used for this project:
     </p>
-    <ul>
+    <ul class="intro-p">
       <li>
         <a
           href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if"
@@ -76,19 +76,18 @@
       </li>
     </ul>
     <br />
-    <br />
-    <p>
+    <p class="intro-p">
       In the following, these are referred to as the <em>Crashes</em> and
       <em>Congestion</em>
-      data sets, respectively. Both sets are freely available via [Chicago Data
-      Portal](https://data.cityofchicago.org).
+      data sets, respectively. Both sets are freely available via
+      <a href="https://data.cityofchicago.org">Chicago Data Portal</a>
     </p>
-    <p>
+    <p class="intro-p">
       The Crashes data set contains location as well as a multitude of meta data
       on each police registered traffic crash within the City of Chicago limits
       and under the jurisdiction of Chicago Police Department.
     </p>
-    <p>
+    <p class="intro-p">
       The Congestion data set contains information about the congestion of the
       streets. Congestion is estimated by probing GPS traces from the public
       transportation buses, yielding regional average speeds of buses with 10
@@ -97,12 +96,12 @@
       comparable traffic patterns, a region is comprised of two or three
       community areas.
     </p>
-    <p>
+    <p class="intro-p">
       The combination of theses two data sets allows for relating each crash to
       one of the 29 defined regions of the City of Chicago, as well as the
       estimated level of congestion at the time of the crash.
     </p>
-    <p>
+    <p class="intro-p">
       Through careful analysis of the data, the goal is to elicit interesting
       findings about the traffic patterns of the City of Chicago and convey them
       in an intuitive manner.
@@ -147,13 +146,14 @@
     <section>
       <h2>Primary Contributory Cause</h2>
       <p>
-        One interesting attribute of the Crashes data set is the 'PRIMARY
-        CONTRIBUTORY CAUSE'. The figure above shows the distribution of causes
-        over all crashes of 2019. It is seen that the two most common causes by
-        far are 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. The
-        large range in number of crashes in the figure makes it difficult to
-        read the values of the left most part, this can be remedied by using a
-        log scale for the y-axis:
+        One interesting attribute of the Crashes data set is the
+        <code>PRIMARY CONTRIBUTORY CAUSE</code>. The figure above shows the
+        distribution of causes over all crashes of 2019. It is seen that the two
+        most common causes by far are
+        <code>FAILING TO YIELD RIGHT-OF-WAY</code> and
+        <code>FOLLOWING TOO CLOSELY</code>. The large range in number of crashes
+        in the figure makes it difficult to read the values of the left most
+        part, this can be remedied by using a log scale for the y-axis:
       </p>
       <div class="iframe-wrapper">
         <iframe
@@ -268,8 +268,7 @@
       <div class="caption">
         <p class="caption__title">Figure X</p>
         <p class="caption__body">
-          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
-          pulvinar ultricies ex quis tincidunt.
+          Heat map of all crashes of 2019 in Chicago.
         </p>
       </div>
 
@@ -462,8 +461,7 @@
       <div class="caption">
         <p class="caption__title">Figure X</p>
         <p class="caption__body">
-          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
-          pulvinar ultricies ex quis tincidunt.
+          Heat map animation of the traffic crashes throughout the day.
         </p>
       </div>
 
@@ -507,7 +505,7 @@
         to work. There is still lowest crash activity in the night hours.
         However, in the weekends the decline is now much slower, and there is
         now a fairly steady amount of crashes from 20 to midnight. Here we see
-        that people are enjoying the night life offered by Chicago-some of which
+        that people are enjoying the night life offered by Chicago—some of which
         unfortunately suffering a traffic crash in the process.
       </p>
       <div class="iframe-wrapper">
@@ -618,15 +616,15 @@
       </div>
       <div class="caption">
         <p class="caption__title">Figure X</p>
-        <p class="caption__body">Primary Cause of Crashes Throughout the Day</p>
+        <p class="caption__body">Primary cause of crashes throughout the day</p>
       </div>
     </section>
 
     <section>
       <h2>Serious Crashes</h2>
       <p>
-        If we mentally visualize downtown Chicago traffic-or perhaps the traffic
-        of just about any big city- chances are you will see a quite hectic
+        If we mentally visualize downtown Chicago traffic—or perhaps the traffic
+        of just about any big city— chances are you will see a quite hectic
         image with pedestrians, cars, scooters and bikes intertwined in a
         chaotic, yet calm flow. In the following we will investigate if downtown
         Chicago sees the most serious traffic crashes as well. Instead of

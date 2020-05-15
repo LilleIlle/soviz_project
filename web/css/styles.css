@@ -42,6 +42,10 @@ body {
   margin-top: 30px;
 }
 
+.intro-p {
+  margin: 8px 0;
+}
+
 .intro-map {
   width: 700px;
 }
@@ -49,7 +53,7 @@ body {
 section {
   display: flex;
   flex-direction: column;
-  margin-top: 72px;
+  margin-top: 48px;
   align-items: center;
 }
 
