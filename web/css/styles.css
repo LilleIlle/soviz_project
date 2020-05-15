@@ -21,15 +21,9 @@ body {
   background-repeat: repeat-x;
   justify-content: center;
   align-items: flex-end;
-  transition: transform 30s ease-out;
-}
-
-.skyline--grow {
-  transform: scale3d(1.1, 1.15, 1);
 }
 
 .skyline__title {
-  /*font-family: 'Playfair Display', serif;*/
   font-weight: 900;
   color: black;
   margin-top: -18px;
