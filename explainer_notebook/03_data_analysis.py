@@ -202,6 +202,42 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_conge
 # To further understand the crash distribution of the day, here we see the same histogram as previously, but now with a trend line showing the
 # average speed in mph. It is clear that the two move inversely; when the crashes are low, average speed is high and vice versa. This verifies
 # the intuition that less average speed means cluttering which also means more traffic which finally means more crashes.
+# %% HOUR BARCHART WEEKEND
+output_file("../web/bokeh/hours_barchart_weekend.html")
+hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
+
+x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
+xx = x.copy()
+xx.append(24)
+
+crashes_weekend = crashes[(crashes['CRASH_DAY_OF_WEEK']==6) | (crashes['CRASH_DAY_OF_WEEK']==7)]
+counts = crashes_weekend['CRASH_HOUR'].value_counts().sort_index()
+
+TOOLTIPS = [
+    ("Crashes", "@top"),
+]
+
+p = figure(plot_height=450,
+           plot_width=800,
+           title="Hourly Crash Distribution Weekend",
+           toolbar_location=None,
+           tools='',
+           tooltips=TOOLTIPS,
+           y_axis_label='Number of Crashes',
+           x_axis_label='Hour')
+
+p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
+           fill_color='#000000', line_color='#000000', fill_alpha=0.25)
+
+p.xgrid.grid_line_color = None
+p.y_range.start = 0
+p.xaxis.ticker = list(range(0, 24))
+
+show(p)
+# %% [markdown]
+# Above we again look at the hours of the day, but now only for the weekend. We see that the 8-9 spike is gone,
+# as less people are commuting to work. There is still lowest crash activity in the night hours, however, the
+# there the decline is now much slower, and there is now a fairly steady amount of crashes from 20 pm to midnight.
 # %% [markdown]
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
