@@ -1,16 +1,19 @@
 # %%
 import pandas as pd
 import numpy as np
-from bokeh.palettes import Category20, Category20b, Turbo256
+from bokeh.palettes import Category20, Category20b, Turbo256, Reds
 from bokeh.io import output_file, show, save, output_notebook
 from bokeh.models import ColumnDataSource, FactorRange, Legend, LinearAxis, Range1d
-from bokeh.plotting import figure
+import seaborn as sns
 from bokeh.transform import dodge
-from bokeh.plotting import figure, output_file, save
+from bokeh.plotting import figure
 import matplotlib as plt
 import folium
 import bokeh
+from folium.plugins import HeatMap, HeatMapWithTime
 from folium import plugins
+import math
+from IPython.display import Image
 
 # %%
 output_notebook()
@@ -304,6 +307,21 @@ chi_bounding = {
 map_location = [chi_bounding['lat'], chi_bounding['lon']]
 map_zoom = 10.5
 # %%
+# Static heat map crashes
+# TODO: Write text
+CHI_map = folium.Map(map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+points = crashes.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
+lat = points['LATITUDE'].values
+lon = points['LONGITUDE'].values
+heat_data = [[row['LATITUDE'], row['LONGITUDE']]
+             for _, row in points.iterrows()]
+
+HeatMap(data=heat_data, max_zoom=20, radius=12).add_to(CHI_map)
+CHI_map.save("../web/folium/heat_crashes.html")
+CHI_map
+# %%
+# Heat map over time - Hour
+# TODO: Write text
 CHI_map_time = folium.Map(
     map_location, tiles="Stamen Toner", zoom_start=map_zoom)
 heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
@@ -326,7 +344,139 @@ hm.add_to(CHI_map_time)
 CHI_map_time.save("../web/folium/heat_crashes_over_time.html")
 CHI_map_time
 
+# %%
+# TODO: Insert text
+# Static heat map fatal
+CHI_map = folium.Map(map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+incapacitating_injuries = crashes["INJURIES_INCAPACITATING"] > 0
+fatal_injuries = crashes["INJURIES_FATAL"] > 0
+data = crashes[fatal_injuries]
+points = data.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
+heat_data = [[row['LATITUDE'], row['LONGITUDE']]
+             for _, row in points.iterrows()]
+
+HeatMap(data=heat_data, max_zoom=15, radius=25).add_to(CHI_map)
+CHI_map.save("../web/folium/heat_fatal.html")
+CHI_map
 
 # %%
+# TODO: Insert text
+# Static heat map incapacitating
+CHI_map = folium.Map(map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+data = crashes[incapacitating_injuries]
+points = data.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
+heat_data = [[row['LATITUDE'], row['LONGITUDE']]
+             for _, row in points.iterrows()]
+
+HeatMap(data=heat_data, max_zoom=15, radius=13).add_to(CHI_map)
+CHI_map.save("../web/folium/heat_incapacitating.html")
+CHI_map
+
+# %%
+# TODO: Insert text
+# Static heat map fatal and incapacitating
+CHI_map = folium.Map(map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+incapacitating_injuries = crashes["INJURIES_INCAPACITATING"] > 0
+data = crashes[incapacitating_injuries | fatal_injuries]
+points = data.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
+heat_data = [[row['LATITUDE'], row['LONGITUDE']]
+             for _, row in points.iterrows()]
+
+HeatMap(data=heat_data, max_zoom=14, radius=12).add_to(CHI_map)
+CHI_map.save("../web/folium/heat_fatal_and_incapacitating.html")
+CHI_map
+
+# %%
+# Calculating the ratio for fatal and incapacitating crashes
+# TODO: Insert text
+crashes = pd.read_csv("../data/crashes_2019_regions.csv")
+crashes = crashes[crashes['REGION_ID'] != -1]
+region_crashes = crashes.groupby(
+    'REGION_ID')['CRASH_DATE'].count().sort_values()
+crashes_fatal_incapacitating = crashes[(crashes['INJURIES_FATAL'] > 0) | (
+    crashes['INJURIES_INCAPACITATING'] > 0)]
+region_crashes_fatal_incapacitating = crashes_fatal_incapacitating.groupby(
+    'REGION_ID')['CRASH_RECORD_ID'].count().sort_values()
+df = pd.concat([region_crashes, region_crashes_fatal_incapacitating], axis=1)
+df = df.rename(columns={'CRASH_DATE': 'total_crashes',
+                        'CRASH_RECORD_ID': 'total_fatal_incap'})
+df['fraction'] = df['total_fatal_incap']/df['total_crashes']
+# %%
+df = pd.read_csv("../data/fatal_incap_frac.csv", index_col="REGION_ID")
+# %%
+# Calculating color for the different bins
+
+
+def calc_color(data):
+    color_sq = colors = np.flip(np.array(Reds[6]))
+
+    colors = 'Reds'
+    new_data, bins = pd.qcut(data, 6, retbins=True,
+                             labels=list(range(6)))
+    color_ton = []
+    for val in new_data:
+        color_ton.append(color_sq[val])
+    colors = np.flip(np.array(Reds[6]))
+    # sns.palplot(colors, 0.6)
+    for i in range(6):
+        print("\n"+str(i+1)+': '+str((bins[i])) +
+              " => "+str((bins[i+1])), end=" ")
+    print("\n\n   1   2   3   4   5   6")
+    return color_ton, bins, colors
+
+
+# %%
+regions = pd.read_csv("../data/congestion_2019.csv")
+# %%
+# Calculate center for each region
+region_idx = np.sort(regions.REGION_ID.unique())
+centers = []
+for i in region_idx:
+    # First row for the region
+    regions[(regions.REGION_ID == 2)].iloc[0]
+    north = regions[(regions.REGION_ID == i)].iloc[0].NORTH
+    south = regions[(regions.REGION_ID == i)].iloc[0].SOUTH
+    east = regions[(regions.REGION_ID == i)].iloc[0].EAST
+    west = regions[(regions.REGION_ID == i)].iloc[0].WEST
+    centers.append({
+        'id': i,
+        'center_x': (east + west)/2,
+        'center_y': (north+south)/2
+    })
+# %%
+color_ton, bins, colors = calc_color(data=df.fraction.to_numpy()*100)
+sns.palplot(colors, 0.6)
+cols = ['LATITUDE', 'LONGITUDE', 'REGION_ID']
+locations = crashes.loc[:, cols]
+CHI_map = folium.Map([chi_bounding["lat"], chi_bounding["lon"]],
+                     tiles="Stamen Toner", zoom_start=11)
+
+for i, row in locations.iterrows():
+    region = row.REGION_ID
+    if region == -1:
+        continue
+    # TODO: Only for hand-in.. File too large
+    if i > 1000:
+        break
+
+    loc = (row['LATITUDE'], row['LONGITUDE'])
+    folium.CircleMarker((loc[0], loc[1]),
+                        radius=.15,
+                        fill=True,
+                        opacity=.6,
+                        color=color_ton[int(row.REGION_ID)-1]).add_to(CHI_map)
+
+
+for region in centers:
+    folium.Marker(location=(region["center_y"], region["center_x"]),
+                  icon=folium.DivIcon(
+        html=f"""<div style="background-color:rgba(255,255,255,.7); border-radius:50%; width:20px">
+                                    <div style="color:black; font-size:14px; width:fit-content; margin:auto; font-weight: 600">{region["id"]}</div>
+                                </div>""")
+    ).add_to(CHI_map)
+CHI_map.save("../web/folium/chi_regions_fatal_incap.html")
+# %%
+Image("../web/folium/pngs/regions_fatal_incap.png")
+# CHI_map
 
 # %%
