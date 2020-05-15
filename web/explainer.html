@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>project</title>
+<title>explainer</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13082,46 +13082,6 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Motivation">1. Motivation<a class="anchor-link" href="#1.-Motivation">&#182;</a></h1><p>In this project, we investigate the traffic of the City of Chicago as a case study of a busy urban environment.
- With its population of approximately 2.7 million it is the third-most-populous city in the United States.
- Daily life in Chicago thus entails millions of people participating in the city's traffic.
- We will have a main focus on temporal patterns of traffic in the project.</p>
-<p>Two data sets are used for this project:</p>
-<ul>
-<li><a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Traffic Crashes - Crashes</a></li>
-<li><a href="https://data.cityofchicago.org/dataset/Chicago-Traffic-Tracker-Historical-Congestion-Esti/kf7e-cur8">Chicago Traffic Tracker - Historical Congestion Estimates by Region - 2018-Current</a></li>
-</ul>
-<p>In the following, these are referred to as the <em>Crashes</em> and <em>Congestion</em> data sets, respectively.
- Both sets are freely available via <a href="https://data.cityofchicago.org">Chicago Data Portal</a>.</p>
-<p>The Crashes data set contains location as well as a multitude of meta data on each police registered traffic crash within the City of Chicago limits and under the jurisdiction of Chicago Police Department.</p>
-<p>The Congestion data set contains information about the congestion of the streets.
- Congestion is estimated by probing GPS traces from the public transportation buses, yielding regional average speeds of
- buses with 10 minutes intervals. The congestion data set features a division of Chicago into 29 regions that covers the city (except O’Hare airport area).
- With comparable traffic patterns, a region is comprised of two or three community areas.</p>
-<p>The combination of theses two data sets allows for relating each crash to one of the 29 defined regions of the City of
- Chicago, as well as the estimated level of congestion at the time of the crash.</p>
-<p>Through careful analysis of the data, the goal is to elicit interesting findings about the traffic patterns of the City of Chicago and convey them in an intuitive manner
- to educate, non-scientific readers.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Basic-Stats">2. Basic Stats<a class="anchor-link" href="#2.-Basic-Stats">&#182;</a></h1><h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">&#182;</a></h3><p>The Crashes data set has 49 attributes and—at the time of writing—404000 data objects.
-  In the format of a CSV file it takes up 222 MB of storage.
- Gathering of the data began in 2015 and has since been updated daily.
- It is thus a fairly large data set and we early on in the process deemed necessary to narrow down in "scope" - both in terms of time and attributes.
- For this project, traffic is analyzed over the course of a full year to be able to analyze the temporal variations throughout a full year.
- Thus, only crashes that took place during 2019 (the most recent full year) are considered:</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -13150,32 +13110,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">bokeh.transform</span> <span class="kn">import</span> <span class="n">dodge</span>
 <span class="kn">from</span> <span class="nn">folium</span> <span class="kn">import</span> <span class="n">plugins</span>
 <span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">HeatMap</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dev</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
+<span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13210,10 +13145,10 @@ div#notebook {
 
 
 
-<div id="59605036-3c55-43d4-ac99-f5e7714d2353"></div>
+<div id="88e2bd69-f803-4f0b-848e-a0390f3847a4"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
+var element = $('#88e2bd69-f803-4f0b-848e-a0390f3847a4');
 
 (function(root) {
   function now() {
@@ -13519,9 +13454,93 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1.-Motivation">1. Motivation<a class="anchor-link" href="#1.-Motivation">&#182;</a></h1><p>In this project, we investigate the traffic of the City of Chicago as a case study of a busy urban environment.
+ With its population of approximately 2.7 million it is the third-most-populous city in the United States.
+ Daily life in Chicago thus entails millions of people participating in the city's traffic.
+ We will have a main focus on temporal patterns of traffic in the project.</p>
+<p>Two data sets are used for this project:</p>
+<ul>
+<li><a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Traffic Crashes - Crashes</a></li>
+<li><a href="https://data.cityofchicago.org/dataset/Chicago-Traffic-Tracker-Historical-Congestion-Esti/kf7e-cur8">Chicago Traffic Tracker - Historical Congestion Estimates by Region - 2018-Current</a></li>
+</ul>
+<p>In the following, these are referred to as the <em>Crashes</em> and <em>Congestion</em> data sets, respectively.
+ Both sets are freely available via <a href="https://data.cityofchicago.org">Chicago Data Portal</a>.</p>
+<p>The Crashes data set contains location as well as a multitude of meta data on each police registered traffic crash within the City of Chicago limits and under the jurisdiction of Chicago Police Department.</p>
+<p>The Congestion data set contains information about the congestion of the streets.
+ Congestion is estimated by probing GPS traces from the public transportation buses, yielding regional average speeds of
+ buses with 10 minutes intervals. The congestion data set features a division of Chicago into 29 regions that covers the city (except O’Hare airport area).
+ With comparable traffic patterns, a region is comprised of two or three community areas.</p>
+<p>The combination of theses two data sets allows for relating each crash to one of the 29 defined regions of the City of
+ Chicago, as well as the estimated level of congestion at the time of the crash.</p>
+<p>Through careful analysis of the data, the goal is to elicit interesting findings about the traffic patterns of the City of Chicago and convey them in an intuitive manner
+ to educate, non-scientific readers.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dev</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">87.6298</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="mf">41.8281</span>
+    <span class="n">CHI_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Stamen Toner&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mf">10.5</span><span class="p">)</span>
+    <span class="n">CHI_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../web/folium/chi_map.html&quot;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;iframe src=&#39;https://chicago-traffic.netlify.app/folium/chi_map.html&#39; height=&#39;750&#39; width=&#39;1000&#39;&gt;&lt;/iframe&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<iframe src='https://chicago-traffic.netlify.app/folium/chi_map.html' height='750' width='1000'></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.-Basic-Stats">2. Basic Stats<a class="anchor-link" href="#2.-Basic-Stats">&#182;</a></h1><h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">&#182;</a></h3><p>Before we break down out data cleaning of the Chicago data sets, we quickly want to mention that we initially planned to analyze
+ New York City traffic (as shown in our project video). However, after a short period of time into the data cleaning process of
+ the NYC data set, we found that the quality of the data set was low; use of manually typed labels where they
+ should have used categorized labels, missing data etc.. We later found the Chicago data set which had a much higher quality,
+ so we decided to pivot, but keep the overall topic of the project.</p>
+<p>The Crashes data set has 49 attributes and—at the time of writing—404000 data objects.
+  In the format of a CSV file it takes up 222 MB of storage.
+ Gathering of the data began in 2015 and has since been updated daily.
+ It is thus a fairly large data set and we early on in the process deemed necessary to narrow down in "scope" - both in terms of time and attributes.
+ For this project, traffic is analyzed over the course of a full year to be able to analyze the temporal variations throughout a full year.
+ Thus, only crashes that took place during 2019 (the most recent full year) are considered:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the Crashes data set:</span>
@@ -13551,7 +13570,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Filter out rows where LOCATION is nan</span>
@@ -13575,7 +13594,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -13609,7 +13628,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -13650,7 +13669,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -13717,7 +13736,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -13784,7 +13803,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13813,7 +13832,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -13893,7 +13912,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BASIC PRIMARY CAUSE PLOT (LOG Y-AXIS)</span>
@@ -13967,7 +13986,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BASIC REGION CRASH BAR CHART</span>
@@ -14049,7 +14068,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BASIC REGION AVG SPEED BAR CHART</span>
@@ -14160,7 +14179,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14240,7 +14259,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14318,7 +14337,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14383,15 +14402,15 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the above plot, we look at the 24 hours of the day. Here we can clearly see that the amount of crashes follows the intuition of when
- there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 a.m. (to work) and then again
- at 15–19 p.m. (home from work). From there on, we see a decreasing decline of crashes from 18 p.m. till 5 a.m.</p>
+ there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 (to work) and then again
+ at 15–19 (home from work). From there on, we see a decreasing decline of crashes from 18-5.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14481,7 +14500,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14549,14 +14568,14 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Above we again look at the hours of the day, but now only for the weekend. We see that the 8–9 spike is gone,
  as less people are commuting to work. There is still lowest crash activity in the night hours. However,
- in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 p.m. to midnight.</p>
+ in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 to midnight.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14644,7 +14663,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14735,7 +14754,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
  Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23–4.
  Also some of the causes that are largely caused by circumstances outside the control of the driver such as
  'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' and 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
- see a more uniform frequency throughout the day from 8 a.m. till around 20–22 p.m. This implies that drivers are more likely to be
+ see a more uniform frequency throughout the day from 8 till around 20–22. This implies that drivers are more likely to be
  involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.</p>
 
 </div>
@@ -14743,7 +14762,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14805,7 +14824,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14871,7 +14890,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14931,7 +14950,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -14975,7 +14994,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -15031,7 +15050,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc_color</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -15059,7 +15078,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
@@ -15132,7 +15151,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;../web/folium/pngs/plplot.png&quot;</span><span class="p">)</span>
@@ -15148,7 +15167,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -15167,7 +15186,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;../web/folium/pngs/regions_fatal_incap.png&quot;</span><span class="p">)</span>
@@ -15183,7 +15202,7 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -15225,13 +15244,13 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="4.-Genre">4. Genre<a class="anchor-link" href="#4.-Genre">&#182;</a></h1><p>Th website is a single frame <em>Magazine Style</em>, where each visualization is embedded in text describing as well as discussing the given visualization.
+<h1 id="4.-Genre">4. Genre<a class="anchor-link" href="#4.-Genre">&#182;</a></h1><p>The website is a single frame <em>Magazine Style</em>, where each visualization is embedded in text describing as well as discussing the given visualization.
  In extend to the magazine style, the <em>Film/Video/Animation</em> genre is used for temporal animations enabling visualizations of how crashes occur over time in Chicago, which we consider a subject of interest in our analysis.</p>
 <p>The structure for this project consists of elements from all three categories of <em>Narrative Structure</em> (Figure 7 in [Segal and Heer]).
  The scenes follow a <strong>linear ordering</strong> to ensure that the path viewers take through the visualization is the one prescribed by the authors.</p>
-<p><strong>Interactivity</strong> – such as <em>Hover Highlighting</em> and <em>filtering</em> – has been utilized for relevant plots in order to engage the user to form their own data diagnostics and pattern discovery.</p>
+<p><strong>Interactivity</strong>—such as <em>Hover Highlighting</em> and <em>filtering</em>—has been utilized for relevant plots in order to engage the user to form their own data diagnostics and pattern discovery.</p>
 <p>Finally <strong>messaging</strong> in the form of <em>Captions / Headlines</em>, <em>Introductory Text</em> and <strong>Summary / Synthesis</strong> has been used to communicate observations and commentary to the viewer.</p>
-<p>In terms of Visual Narrative tools (Figure 7 in [Segal and Heer]), highlighting (e.g. feature distinction, motion and zooming) is employ to help direct the viewer’s attention to particular elements of the different scenes.</p>
+<p>In terms of Visual Narrative tools (Figure 7 in [Segal and Heer]), highlighting (e.g. feature distinction, motion and zooming) is employed to help direct the viewer’s attention to particular elements of the different scenes.</p>
 
 </div>
 </div>
@@ -15239,13 +15258,13 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="5.-Visualizations">5. Visualizations<a class="anchor-link" href="#5.-Visualizations">&#182;</a></h1><p>Almost all charts are bar charts and histograms.
+<h1 id="5.-Visualizations">5. Visualizations<a class="anchor-link" href="#5.-Visualizations">&#182;</a></h1><p>Bar charts, histograms and maps are the primary type of visualizations used.
  Bar charts are chosen for their superior readability—they convey categorized quantities concisely.
- Conversely, abominations such as pie and donut charts are <em>not</em> used.
+ Conversely, charts such as pie and donut charts are <em>not</em> used.
  The goal has been to keep the data–ink ratio [Tufte] high and the color scheme consistent throughout the project.</p>
-<p>In Figure X of Section 3 a twin y-axis chart is used to combine a histogram with a trend line.
+<p>In the figure in Section 3 showing the plot of number of crashes and average speeds a twin y-axis chart is used to combine a histogram with a trend line.
  The striking red color of the trend line is also used for coloring the y-axis itself, rendering legends surplus.</p>
-<p>In Figure X of Section 3 a scatter chart is used to investigate the correlation between two attributes.</p>
+<p>In Section 3 a scatter chart is used to investigate the correlation between two attributes.</p>
 <p>For geospatial data, map visualizations are naturally used to convey the locality of crashes as well
  as heat maps showing the concentration of various events. For showing the temporal development of crashes,
  some of the maps are augmented with animations scrubbing through time. Animations are thus an evident choice for temporal visualizations.</p>
@@ -15257,15 +15276,15 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="6.-Discussion">6. Discussion<a class="anchor-link" href="#6.-Discussion">&#182;</a></h1><h3 id="What-went-well">What went well<a class="anchor-link" href="#What-went-well">&#182;</a></h3><p>The source of visualizations is obviously data. As this assignment basically started in the search of a data set,
- we spend a fair amount of time seeking out a data set of high quality and not just seemed interesting on the surface.
+ we spend a fair amount of time seeking out a data set of high quality and not just one that seemed interesting on the surface.
  Eventually, we found the Chicago data sets that seemed promising. This was indeed the case, as we found the data sets
- to be rich and well-groomed with few missing data points and many interesting attributes, more than had time to cover in
- this project. This in turn resulted in a very smooth data cleaning and pre-processing phase that quickly launched us into
- doing actual visualization work. Hence, taking the time to research a promising data was likely a good use of our time on this project.
- For the visualizations, we have had a focus on temporal plots and animations which has shown interesting patterns of traffic
- in different regions of the city through-out the day, month and the grander scheme of a whole year. Furthermore, the focus on
- primary causes for traffic accidents enabling us to see which causes are most common on different times of the day.</p>
-<h3 id="What-is-still-missing?-What-could-be-improved?-Why?">What is still missing? What could be improved? Why?<a class="anchor-link" href="#What-is-still-missing?-What-could-be-improved?-Why?">&#182;</a></h3><p>At the outset of this project on of our main goals was to make a quantified assessment of how dangerous
+ to be rich and well-groomed with few missing data points and many interesting attributes—more than we had time to cover in
+ this project. This in turn resulted in a smooth data cleaning and pre-processing phase that quickly launched us into
+ doing actual visualization work. Hence, taking the time to research a promising data set was likely a good use of time in the initial phase of this project.
+ For the visualizations, we have had a focus on temporal plots and animations which have shown interesting patterns of traffic
+ in different regions of the city throughout the day, month and the grander scheme of a whole year. Furthermore, the focus on
+ primary contributory causes for traffic accidents enabled us to see which causes are most common on different times of the day.</p>
+<h3 id="What-is-still-missing?-What-could-be-improved?-Why?">What is still missing? What could be improved? Why?<a class="anchor-link" href="#What-is-still-missing?-What-could-be-improved?-Why?">&#182;</a></h3><p>At the outset of this project one of our main goals was to make a quantified assessment of how dangerous
  the streets of Chicago is in terms of its regions and time of day, e.g. to state the probability of a
  crash given location and time.</p>
 <p>By intuition, however, an increase in number of vehicles on the streets leads to an increase in occurrences of crashes.
@@ -15277,16 +15296,14 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 <p>The ultimate measure for the amount of traffic would be the exact number of vehicles
  passing any given location at any given time. Such data is <em>not</em> available for the City of Chicago, if anywhere.</p>
 <p>Instead, det Congestion data set provides estimates of the traffic congestion in terms of average speed of public
- transportation buses
- a lower average speed indicates a higher level of congestion.
+ transportation buses—a lower average speed indicates a higher level of congestion.
  It is—reasonably—assumed that a higher level of congestion means a higher amount of vehicles on the streets.
  However, the average speed of buses is not only affected by other vehicles taking up space on the streets.
- It is also affected by the number of commuters utilizing them
- more commuters means the buses spend more time at each
+ It is also affected by the number of commuters utilizing them—more commuters means the buses spend more time at each
  bus stop, pushing the average speed downwards.</p>
 <p>Though not the perfect solution, for this project traffic congestion where used as a measure for the amount of traffic.</p>
-<p>For future work, it could be interesting to access the amount of traffic more precisely, to be able to precisely visualize and assess which
- parts of the city has the highest change of a crash relatively to the amount of traffic. This would ultimately require a different means of
+<p>For future work, it could be interesting to assess the amount of traffic more precisely, to be able to precisely visualize and assess which
+ parts of the city has the highest probability of a crash relatively to the amount of traffic. This would ultimately require a different means of
  gathering the data, e.g. via satellite photos.</p>
 
 </div>
@@ -15295,10 +15312,10 @@ var element = $('#59605036-3c55-43d4-ac99-f5e7714d2353');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="7.-Contributions">7. Contributions<a class="anchor-link" href="#7.-Contributions">&#182;</a></h1><ul>
-<li><strong>Marco Illemann</strong>:</li>
-<li><strong>Rasmus Liebst</strong>:</li>
-<li><strong>Robert Karlsson</strong>:</li>
+<h1 id="7.-Contributions">7. Contributions<a class="anchor-link" href="#7.-Contributions">&#182;</a></h1><h3 id="Main-responsibilities:">Main responsibilities:<a class="anchor-link" href="#Main-responsibilities:">&#182;</a></h3><ul>
+<li><strong>Marco Illemann</strong>: Web-hosting, Map visualizations, Notebook Engineering</li>
+<li><strong>Rasmus Suonperä Liebst</strong>: Chart visualizations, Report writing</li>
+<li><strong>Robert Marker Karlsson</strong>: Data cleaning, Data preprocessing, Web-design</li>
 </ul>
 
 </div>

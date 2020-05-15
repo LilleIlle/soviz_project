@@ -15,34 +15,6 @@
 # For this project, traffic is analyzed over the course of a full year to be able to analyze the temporal variations throughout a full year.
 # Thus, only crashes that took place during 2019 (the most recent full year) are considered:
 # %%
-import datetime
-import math
-
-import folium
-import numpy as np
-import pandas as pd
-from IPython.display import Image, display, HTML
-from bokeh.io import output_file, show
-from bokeh.palettes import Category20, Category20b
-from bokeh.plotting import figure
-
-import folium
-import numpy as np
-import pandas as pd
-import seaborn as sns
-from IPython.display import Image
-from bokeh.io import output_file, show, output_notebook
-from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
-from bokeh.palettes import Category20, Category20b, Reds
-from bokeh.plotting import figure
-from bokeh.transform import dodge
-from folium import plugins
-from folium.plugins import HeatMap
-# %%
-dev = False
-# %%
-output_notebook()
-# %%
 # Load the Crashes data set:
 if dev:
     data = pd.read_csv('../data/Traffic_Crashes_-_Crashes.csv')

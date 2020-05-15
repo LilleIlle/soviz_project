@@ -1,17 +1,3 @@
-# %%
-import folium
-import numpy as np
-import pandas as pd
-# import seaborn as sns
-from IPython.display import Image, display, HTML
-from bokeh.io import output_file, show, output_notebook
-from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
-from bokeh.palettes import Category20, Category20b, Reds
-from bokeh.plotting import figure
-from bokeh.transform import dodge
-from folium import plugins
-from folium.plugins import HeatMap
-dev = False
 # %% [markdown]
 # # 3. Data Analysis
 # In this section, we dive further into the data analysis we got an initial overview of in the previous section.

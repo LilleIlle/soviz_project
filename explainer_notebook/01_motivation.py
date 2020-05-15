@@ -1,3 +1,28 @@
+# %%
+import datetime
+import math
+
+import folium
+import numpy as np
+import pandas as pd
+from IPython.display import Image, display, HTML
+from bokeh.io import output_file, show
+from bokeh.palettes import Category20, Category20b
+from bokeh.plotting import figure
+
+import folium
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from IPython.display import Image
+from bokeh.io import output_file, show, output_notebook
+from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
+from bokeh.palettes import Category20, Category20b, Reds
+from bokeh.plotting import figure
+from bokeh.transform import dodge
+from folium import plugins
+from folium.plugins import HeatMap
+output_notebook()
 # %% [markdown]
 # # 1. Motivation
 # In this project, we investigate the traffic of the City of Chicago as a case study of a busy urban environment.
@@ -25,5 +50,16 @@
 #
 # Through careful analysis of the data, the goal is to elicit interesting findings about the traffic patterns of the City of Chicago and convey them in an intuitive manner
 # to educate, non-scientific readers.
+
+# %%
+dev = False
+if dev:
+    lon = -87.6298
+    lat = 41.8281
+    CHI_map = folium.Map([lat, lon], tiles="Stamen Toner", zoom_start=10.5)
+    CHI_map.save("../web/folium/chi_map.html")
+
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/chi_map.html' height='750' width='1000'></iframe>"))
+
 
 # %%
