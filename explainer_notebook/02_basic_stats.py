@@ -395,3 +395,11 @@ if dev:
     #p.xaxis.ticker = list(range(1, 30))
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_avg_speed_bar_chart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# The figure above shows the average speed for public transportation buses for all 29 regions for 2019.
+# It is seen that buses servicing the region _Chicago Loop_ (with ID 13) has the lowest average speed,
+# whereas buses in the region _Washington Hts-Roseland-Pullman_ (with ID 26) has the highest average speed.
+
+# The average speed of the buses is considered a measure for the level of traffic congestion across the regions.
+# It is hypothesized that the level of congestion is correlated to the amount of traffic on the
+# streets—the lower the average speed, the more vehicles on the streets.
