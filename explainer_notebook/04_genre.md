@@ -1,7 +1,7 @@
 # Genre
 
-Th website is a single frame _Magazine Style_, where each visualization is embedded in some text either describing or discussing the foundings made for the given visualization.
-In extend to the magazine style, the _Film/Video/Animation_ genre is used to show the reader how the distribution of crashes changes for different time intervals.
+Th website is a single frame _Magazine Style_, where each visualization is embedded in text describing as well as discussing the given visualization.
+In extend to the magazine style, the _Film/Video/Animation_ genre is used for temporal animations enabling visualizations of how crashes occur over time in Chicago, which we consider a subject of interest in our analysis.
 
 The structure for this project consists of elements from all three categories of _Narrative Structure_ (Figure 7 in [Segal and Heer]).
 The scenes follow a **linear ordering** to ensure that the path viewers take through the visualization is the one prescribed by the authors.
