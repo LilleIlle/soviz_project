@@ -2,6 +2,12 @@
 # # 2. Basic Stats
 #
 # ### Data Cleaning
+# Before we break down out data cleaning of the Chicago data sets, we quickly want to mention that we initially planned to analyze
+# New York City traffic (as shown in our project video). However, after a short period of time into the data cleaning process of
+# the NYC data set, we found that the quality of the data set was low; use of manually typed labels where they
+# should have used categorized labels, missing data etc.. We later found the Chicago data set which had a much higher quality,
+# so we decided to pivot, but keep the overall topic of the project.
+#
 # The Crashes data set has 49 attributes and—at the time of writing—404000 data objects.
 #  In the format of a CSV file it takes up 222 MB of storage.
 # Gathering of the data began in 2015 and has since been updated daily.
