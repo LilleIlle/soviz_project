@@ -452,12 +452,11 @@ CHI_map = folium.Map([chi_bounding["lat"], chi_bounding["lon"]],
                      tiles="Stamen Toner", zoom_start=11)
 
 for i, row in locations.iterrows():
+    # TODO: Only for hand-in..
+    break
     region = row.REGION_ID
     if region == -1:
         continue
-    # TODO: Only for hand-in.. File too large
-    if i > 1000:
-        break
 
     loc = (row['LATITUDE'], row['LONGITUDE'])
     folium.CircleMarker((loc[0], loc[1]),
