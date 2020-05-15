@@ -11,8 +11,6 @@ from bokeh.plotting import figure
 from bokeh.transform import dodge
 from folium import plugins
 from folium.plugins import HeatMap
-
-
 # %%
 output_notebook()
 # %% [markdown]
@@ -59,7 +57,7 @@ show(p)
 # ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
 # %%
-output_file("./web/bokeh/days_barchart.html")
+output_file("../web/bokeh/days_barchart.html")
 
 weekdays = ['Monday', 'Tuesday', 'Wednesday',
             'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -236,9 +234,9 @@ show(p)
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
 # %%
-crashes = pd.read_csv("./data/crashes_2019_regions.csv")
+crashes = pd.read_csv("../data/crashes_2019_regions.csv")
 # %%
-output_file("./web/bokeh/primary_cause.html")
+output_file("../web/bokeh/primary_cause.html")
 # %%
 # Filtering the primary causes 'UNABLE TO DETERMINE' and 'NOT APPLICABLE' as we deem this irrelevant for the purpose of the plot
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')
@@ -258,7 +256,7 @@ for cause in cp:
         'CRASH_HOUR').size()
     # cause_hist_norm = (cause_hist / cause_hist.sum()) # distribution for a given cause seen only in context of the cause
     causes_norm[cause] = cause_hist
-causes_norm.fillna(0)
+causes_norm = causes_norm.fillna(0)
 
 # %%
 source = causes_norm

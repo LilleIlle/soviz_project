@@ -20,7 +20,20 @@ from bokeh.io import output_file, show
 from bokeh.palettes import Category20, Category20b
 from bokeh.plotting import figure
 
-
+import folium
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from IPython.display import Image
+from bokeh.io import output_file, show, output_notebook
+from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
+from bokeh.palettes import Category20, Category20b, Reds
+from bokeh.plotting import figure
+from bokeh.transform import dodge
+from folium import plugins
+from folium.plugins import HeatMap
+# %%
+output_notebook()
 # %%
 # Load the Crashes data set:
 data = pd.read_csv('../data/Traffic_Crashes_-_Crashes.csv')
@@ -218,10 +231,10 @@ Image('../web/folium/pngs/regions.png')
 # To see the map, go to [this page](https://chicago-traffic.netlify.app)
 
 # %%
-crashes = pd.read_csv("./data/crashes_2019_regions.csv")
+crashes = pd.read_csv("../data/crashes_2019_regions.csv")
 # %%
 # BASIC PRIMARY CAUSE PLOT
-output_file("./web/bokeh/primary_cause_bar_chart.html")
+output_file("../web/bokeh/primary_cause_bar_chart.html")
 
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')
                           & (crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'NOT APPLICABLE')]
@@ -243,7 +256,7 @@ p = figure(x_range=counts.index.values,
            tooltips=TOOLTIPS,
            y_axis_label='Number of crashes',
            min_border_right=250)
-           #frame_width=1600)
+# frame_width=1600)
 # y_axis_type="log")
 
 p.vbar(x=counts.index.values, top=counts, width=0.5, fill_alpha=0.25,
@@ -258,7 +271,7 @@ ls = counts.index.values
 type(ls)
 # %%
 # BASIC PRIMARY CAUSE PLOT (LOG Y-AXIS)
-output_file("./web/bokeh/primary_cause_bar_chart_log.html")
+output_file("../web/bokeh/primary_cause_bar_chart_log.html")
 
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')
                           & (crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'NOT APPLICABLE')]
@@ -290,15 +303,18 @@ p.y_range.start = 10**(0)
 show(p)
 # %%
 # BASIC REGION CRASH BAR CHART
-output_file("./web/bokeh/region_bar_chart.html")
+output_file("../web/bokeh/region_bar_chart.html")
 
-congestion = pd.read_csv("./data/congestion_2019.csv")
+congestion = pd.read_csv("../data/congestion_2019.csv")
 crashes = crashes[crashes['REGION_ID'] != -1]
 
-region_id_region = congestion.groupby(['REGION_ID','REGION']).size().index.values
+region_id_region = congestion.groupby(
+    ['REGION_ID', 'REGION']).size().index.values
 region_dict = dict(region_id_region)
-crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in crashes['REGION_ID']]
-congestion['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
+crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x)
+                            for x in crashes['REGION_ID']]
+congestion['REGION_PRETTY'] = [
+    str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
 
 counts = None
 counts = crashes.groupby('REGION_PRETTY').size().sort_values()
@@ -329,14 +345,17 @@ show(p)
 
 # %%
 # BASIC REGION AVG SPEED BAR CHART
-output_file("./web/bokeh/region_avg_speed_bar_chart.html")
+output_file("../web/bokeh/region_avg_speed_bar_chart.html")
 
-congestion = pd.read_csv("./data/congestion_2019.csv")
+congestion = pd.read_csv("../data/congestion_2019.csv")
 
-region_id_region = congestion.groupby(['REGION_ID','REGION']).size().index.values
+region_id_region = congestion.groupby(
+    ['REGION_ID', 'REGION']).size().index.values
 region_dict = dict(region_id_region)
-crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in crashes['REGION_ID']]
-congestion['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
+crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x)
+                            for x in crashes['REGION_ID']]
+congestion['REGION_PRETTY'] = [
+    str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
 
 avg_speed = congestion.groupby('REGION_PRETTY')['SPEED'].mean().sort_values()
 counts = None
@@ -347,18 +366,18 @@ TOOLTIPS = [
     ("Average speed (mph)", "@top")
 ]
 # np.sort(congestion['REGION_ID'].unique, axis=None
-p = figure(#x_range=(1, 29),
-           #FactorRange(factors=str(counts.index.values)),
-           #x_range=counts.index.values.astype(str),
-           x_range = cx,
-           plot_height=500,
-           plot_width=700,
-           toolbar_location=None,
-           tools='',
-           tooltips=TOOLTIPS,
-           y_axis_label='Average Speed (mph)',
-           x_axis_label='Region',
-           min_border_right=150)
+p = figure(  # x_range=(1, 29),
+    # FactorRange(factors=str(counts.index.values)),
+    # x_range=counts.index.values.astype(str),
+    x_range=cx,
+    plot_height=500,
+    plot_width=700,
+    toolbar_location=None,
+    tools='',
+    tooltips=TOOLTIPS,
+    y_axis_label='Average Speed (mph)',
+    x_axis_label='Region',
+    min_border_right=150)
 
 p.vbar(x=cx, top=counts, width=0.5, fill_alpha=0.25,
        fill_color='#000000', line_color='#000000'),  # bottom=0.01)
@@ -367,3 +386,6 @@ p.y_range.start = 15
 p.xaxis.major_label_orientation = -0.4 * math.pi/2
 #p.xaxis.ticker = list(range(1, 30))
 show(p)
+
+
+# %%

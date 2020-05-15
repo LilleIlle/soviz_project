@@ -1,4 +1,4 @@
-- Bokeh output in notebook
 - Clean code from 02
 - Add "empty" Chicago map in 02
-- 
+- Add if statement around slow code
+- SPEED KILLS
