@@ -58,10 +58,11 @@ show(p)
 # ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
 # %%
-output_file("../web/bokeh/days_barchart.html")
+output_file("./web/bokeh/days_barchart.html")
 
 weekdays = ['Monday', 'Tuesday', 'Wednesday',
             'Thursday', 'Friday', 'Saturday', 'Sunday']
+counts = None
 counts = crashes['CRASH_DAY_OF_WEEK'].value_counts().sort_index()
 
 TOOLTIPS = [
@@ -166,7 +167,7 @@ p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
 p.extra_y_ranges = {'SPEED': Range1d(
     start=(hour_congestion.min()-0.25), end=(hour_congestion.max())+0.25)}
 p.add_layout(LinearAxis(y_range_name='SPEED',
-                        axis_label="Average mph", axis_line_color='red'), 'right')
+                        axis_label="Average speed (mph)", axis_line_color='red'), 'right')
 
 extra_value_y = pd.Series([hour_congestion[0]], index=[24])
 hour_congestion = hour_congestion.append(extra_value_y)
@@ -234,9 +235,9 @@ show(p)
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
 # %%
-crashes = pd.read_csv("../data/crashes_2019_regions.csv")
+crashes = pd.read_csv("./data/crashes_2019_regions.csv")
 # %%
-output_file("../web/bokeh/primary_cause.html")
+output_file("./web/bokeh/primary_cause.html")
 # %%
 # Filtering the primary causes 'UNABLE TO DETERMINE' and 'NOT APPLICABLE' as we deem this irrelevant for the purpose of the plot
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')

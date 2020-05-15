@@ -19,6 +19,7 @@ from bokeh.models import ColumnDataSource, FactorRange, Legend
 from bokeh.plotting import figure
 from bokeh.transform import dodge
 import math
+import bokeh
 
 # %%
 # Load the Crashes data set:
@@ -216,10 +217,10 @@ for region in centers:
 # To see the map, go to [this page](https://chicago-traffic.netlify.app)
 
 # %%
-crashes = pd.read_csv("../data/crashes_2019_regions.csv")
+crashes = pd.read_csv("./data/crashes_2019_regions.csv")
 # %%
 # BASIC PRIMARY CAUSE PLOT
-output_file("../web/bokeh/primary_cause_bar_chart.html")
+output_file("./web/bokeh/primary_cause_bar_chart.html")
 
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')
                           & (crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'NOT APPLICABLE')]
@@ -233,24 +234,30 @@ TOOLTIPS = [
     ("Number of crashes", "@top")
 ]
 
-p = figure(x_range=cp,
+p = figure(x_range=counts.index.values,
            plot_height=1050,
            plot_width=1050,
            toolbar_location=None,
            tools='',
            tooltips=TOOLTIPS,
-           y_axis_label='Number of crashes')
+           y_axis_label='Number of crashes',
+           min_border_right=250)
+           #frame_width=1600)
 # y_axis_type="log")
 
-p.vbar(x=cp, top=counts, width=0.5, fill_alpha=0.25,
+p.vbar(x=counts.index.values, top=counts, width=0.5, fill_alpha=0.25,
        fill_color='#000000', line_color='#000000', bottom=0.01)
 p.xgrid.grid_line_color = None
-p.xaxis.major_label_orientation = 0.4 * math.pi/2
+p.xaxis.major_label_orientation = -0.4 * math.pi/2
 p.y_range.start = 0
+#plots = bokeh.gridplot([[p]], sizing_mode='scale_width')
 show(p)
 # %%
+ls = counts.index.values
+type(ls)
+# %%
 # BASIC PRIMARY CAUSE PLOT (LOG Y-AXIS)
-output_file("../web/bokeh/primary_cause_bar_chart_log.html")
+output_file("./web/bokeh/primary_cause_bar_chart_log.html")
 
 crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETERMINE')
                           & (crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'NOT APPLICABLE')]
@@ -264,70 +271,98 @@ TOOLTIPS = [
     ("Number of crashes", "@top")
 ]
 
-p = figure(x_range=cp,
-           plot_height=1450,
+p = figure(x_range=counts.index.values,
+           plot_height=1050,
+           plot_width=1050,
            toolbar_location=None,
            tools='',
            tooltips=TOOLTIPS,
            y_axis_label='Number of crashes',
-           y_axis_type="log")
+           y_axis_type="log",
+           min_border_right=250)
 
-p.vbar(x=cp, top=counts, width=0.5, fill_alpha=0.25,
+p.vbar(x=counts.index.values, top=counts, width=0.5, fill_alpha=0.25,
        fill_color='#000000', line_color='#000000', bottom=0.01)
 p.xgrid.grid_line_color = None
-p.xaxis.major_label_orientation = math.pi/2
-p.y_range.start = 10**(-2)
+p.xaxis.major_label_orientation = -0.4 * math.pi/2
+p.y_range.start = 10**(0)
 show(p)
 # %%
 # BASIC REGION CRASH BAR CHART
-output_file("../web/bokeh/region_bar_chart.html")
+output_file("./web/bokeh/region_bar_chart.html")
+
+congestion = pd.read_csv("./data/congestion_2019.csv")
 crashes = crashes[crashes['REGION_ID'] != -1]
+
+region_id_region = congestion.groupby(['REGION_ID','REGION']).size().index.values
+region_dict = dict(region_id_region)
+crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in crashes['REGION_ID']]
+congestion['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
+
 counts = None
-counts = crashes.groupby('REGION_ID').size()
+counts = crashes.groupby('REGION_PRETTY').size().sort_values()
+cx = counts.index.values.astype(str)
 
 TOOLTIPS = [
     ("Number of crashes", "@top")
 ]
 
-p = figure(x_range=counts.index.array,
+p = figure(x_range=cx,
            plot_height=500,
+           plot_width=700,
            toolbar_location=None,
            tools='',
            tooltips=TOOLTIPS,
            y_axis_label='Number of crashes',
-           x_axis_label='Region ID')
+           x_axis_label='Region',
+           min_border_right=150)
 
-p.vbar(x=counts.index.array, top=counts, width=0.5, fill_alpha=0.25,
+p.vbar(x=cx, top=counts, width=0.5, fill_alpha=0.25,
        fill_color='#000000', line_color='#000000'),  # bottom=0.01)
 p.xgrid.grid_line_color = None
 p.y_range.start = 0
-p.xaxis.ticker = list(range(1, 30))
+p.xaxis.major_label_orientation = -0.4 * math.pi/2
+#p.xaxis.ticker = list(range(1, 30))
+
 show(p)
 
 # %%
 # BASIC REGION AVG SPEED BAR CHART
-output_file("../web/bokeh/region_avg_speed_bar_chart.html")
+output_file("./web/bokeh/region_avg_speed_bar_chart.html")
 
-congestion = pd.read_csv("../data/congestion_2019.csv")
-avg_speed = congestion.groupby('REGION_ID')['SPEED'].mean().sort_values()
+congestion = pd.read_csv("./data/congestion_2019.csv")
+
+region_id_region = congestion.groupby(['REGION_ID','REGION']).size().index.values
+region_dict = dict(region_id_region)
+crashes['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in crashes['REGION_ID']]
+congestion['REGION_PRETTY'] = [str(x) + ": " + region_dict.get(x) for x in congestion['REGION_ID']]
+
+avg_speed = congestion.groupby('REGION_PRETTY')['SPEED'].mean().sort_values()
 counts = None
 counts = avg_speed
+cx = counts.index.values.astype(str)
 
 TOOLTIPS = [
-    ("Average mph", "@top")
+    ("Average speed (mph)", "@top")
 ]
-
-p = figure(x_range=counts.index.array,
+# np.sort(congestion['REGION_ID'].unique, axis=None
+p = figure(#x_range=(1, 29),
+           #FactorRange(factors=str(counts.index.values)),
+           #x_range=counts.index.values.astype(str),
+           x_range = cx,
            plot_height=500,
+           plot_width=700,
            toolbar_location=None,
            tools='',
            tooltips=TOOLTIPS,
-           y_axis_label='Average mph',
-           x_axis_label='Region ID')
+           y_axis_label='Average Speed (mph)',
+           x_axis_label='Region',
+           min_border_right=150)
 
-p.vbar(x=counts.index.array, top=counts, width=0.5, fill_alpha=0.25,
+p.vbar(x=cx, top=counts, width=0.5, fill_alpha=0.25,
        fill_color='#000000', line_color='#000000'),  # bottom=0.01)
 p.xgrid.grid_line_color = None
-p.y_range.start = 0
-p.xaxis.ticker = list(range(1, 30))
+p.y_range.start = 15
+p.xaxis.major_label_orientation = -0.4 * math.pi/2
+#p.xaxis.ticker = list(range(1, 30))
 show(p)
