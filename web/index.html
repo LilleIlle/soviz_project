@@ -368,6 +368,110 @@
       </div>
     </section>
 
+    <section>
+      <h2>Daily Temporal Patterns</h2>
+      <p>
+        In the below plot, we look at the 24 hours of the day. Here we can
+        clearly see that the amount of crashes follows the intuition of when
+        there is peak traffic in a city; around commute time to and from work.
+        We clearly see a spike around 8–9 (to work) and then again at 15–19
+        (home from work). From there on, we see a decreasing decline of crashes
+        from 18-5.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="bokeh/hours_barchart.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="bokeh/hours_barchart.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
+        </p>
+      </div>
+
+      <p>
+        To further understand the crash distribution of the day, here we see the
+        same histogram as previously, but now with a trend line showing the
+        average speed in mph. It is clear that the two move inversely; when the
+        crashes are low, average speed is high and vice versa. This verifies the
+        intuition that less average speed means cluttering which also means more
+        traffic which finally means more crashes.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="bokeh/hours_congestion_barchart.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="bokeh/hours_congestion_barchart.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
+        </p>
+      </div>
+
+      <p>
+        Above we again look at the hours of the day, but now only for the
+        weekend. We see that the 8–9 spike is gone, as less people are commuting
+        to work. There is still lowest crash activity in the night hours.
+        However, in the weekends the decline is now much slower, and there is
+        now a fairly steady amount of crashes from 20 to midnight.
+      </p>
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="bokeh/hours_barchart_weekend.html"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="bokeh/hours_barchart_weekend.html"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
+      <div class="caption">
+        <p class="caption__title">Figure X</p>
+        <p class="caption__body">
+          Aenean nisi nunc, feugiat nec enim ac, rhoncus malesuada dolor. Cras
+          pulvinar ultricies ex quis tincidunt.
+        </p>
+      </div>
+    </section>
+
     <!--    Old........................-->
 
     <!-- Crashes Heat Map -->
