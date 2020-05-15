@@ -265,9 +265,9 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause_bar_chart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
-# One interesting attribute of the Crashes data set is the _primary contributory cause_ (PCC).
-# The figure above shows the distribution of PCCs over all crashes of 2019.
-# It is seen that the two most common PCCs are _failing to yield right-of-way_ and _following too closely_.
+# One interesting attribute of the Crashes data set is the 'PRIMARY CONTRIBUTORY CAUSE'.
+# The figure above shows the distribution of causes over all crashes of 2019.
+# It is seen that the two most common causes by far are 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'.
 
 # The large range in number of crashes in the figure makes it difficult to read the values of the left most part.
 # The tooltip functionality of Bokeh is of no use because the bars are so small.
@@ -408,9 +408,9 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/region_avg_
 # whereas buses in the region _Washington Hts-Roseland-Pullman_ (with ID 26) has the highest average speed.
 # Chicago Loop is Chicago's official downtown area, which is "celebrated for its dynamic architecture and big city buzz" according
 # to the tourist web site https://www.choosechicago.com/. It features a high population density of 8200/km<sup>2</sup> (according to this report https://www.cmap.illinois.gov/documents/10180/126764/The+Loop.pdf from Chicago Metropolitan Agency for Planning (CMAP).
-# On the other hand, suburban areas further away from the Loop, e.g. _Washington Hts-Roseland-Pullman_ (with ID 26) with the highest average speed,
+# On the other hand, areas further away from the Loop, e.g. _Washington Hts-Roseland-Pullman_ (with ID 26) with the highest average speed,
 # has a much lower population density with 3373/km<sup>2</sup> (according to this report https://www.cmap.illinois.gov/documents/10180/126764/Roseland.pdf also from CMAP).
 # The average speed of the buses is considered a measure for the level of traffic congestion across the regions, as the level of congestion is correlated to the amount of traffic on the
 # streets—the lower the average speed, the more vehicles on the streets.
-# In summarize, we see higher average speed outside downtown Chicago as these areas has less traffic congestion , not least due to
+# In summary, we see higher average speeds outside downtown Chicago as these areas has less traffic congestion, not least due to
 # much lower population density. Later we will consider the severity (i.e. the mortality and injuries suffered) in the different regions.

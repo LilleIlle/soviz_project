@@ -9,6 +9,7 @@
 # * [Traffic Crashes - Crashes](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if)
 # * [Chicago Traffic Tracker - Historical Congestion Estimates by Region - 2018-Current](https://data.cityofchicago.org/dataset/Chicago-Traffic-Tracker-Historical-Congestion-Esti/kf7e-cur8)
 #
+#
 # In the following, these are referred to as the *Crashes* and *Congestion* data sets, respectively.
 # Both sets are freely available via [Chicago Data Portal](https://data.cityofchicago.org).
 #
@@ -24,3 +25,5 @@
 #
 # Through careful analysis of the data, the goal is to elicit interesting findings about the traffic patterns of the City of Chicago and convey them in an intuitive manner
 # to educate, non-scientific readers.
+
+# %%
