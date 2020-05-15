@@ -16,16 +16,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Chicago Traffic</title>
+    <title>Chicago Crashes</title>
   </head>
   <body>
     <div style="width: 100%; height: 18px; background-color: black;"></div>
     <div class="skyline"></div>
-    <h1 class="skyline__title">Chicago Traffic</h1>
+    <h1 class="skyline__title">Chicago Crashes</h1>
     <p class="intro-txt">
       The City of Chicago is America's third-most-populous city and is one of
       the largest transportation centers in America. In the following, we take a
-      deep dive into <i>all</i> of police registered traffic crashes of 2019—is
+      deep dive into all of police registered traffic crashes of 2019—is
       it safe to drive in Chicago's hectic traffic life?
     </p>
     <a
@@ -146,13 +146,11 @@
       <h2>Primary Contributory Cause</h2>
       <p>
         One interesting attribute of the Crashes data set is the
-        <code>PRIMARY CONTRIBUTORY CAUSE</code>. The figure above shows the
+        <code>PRIMARY CONTRIBUTORY CAUSE</code>. The figure below shows the
         distribution of causes over all crashes of 2019. It is seen that the two
         most common causes by far are
         <code>FAILING TO YIELD RIGHT-OF-WAY</code> and
-        <code>FOLLOWING TOO CLOSELY</code>. The large range in number of crashes
-        in the figure makes it difficult to read the values of the left most
-        part, this can be remedied by using a log scale for the y-axis:
+        <code>FOLLOWING TOO CLOSELY</code>:
       </p>
       <div class="iframe-wrapper">
         <iframe
@@ -178,6 +176,12 @@
           The distribution of primary causes for crashes.
         </p>
       </div>
+
+      <p>
+        The large range in number of crashes
+        in the figure makes it difficult to read the values of the left most
+        part, this can be remedied by using a log scale for the y-axis:
+      </p>
 
       <div class="iframe-wrapper">
         <iframe
