@@ -72,6 +72,7 @@ iframe {
   padding: 24px;
   transition: opacity 1s 1s linear;
   opacity: 1;
+  pointer-events: none;
 }
 
 code {
