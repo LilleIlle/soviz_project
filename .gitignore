@@ -9,7 +9,7 @@ html/*
 !html/.gitkeep
 Soviz.code-workspace
 rmk_ignore
-mi_ignore
+mi_ignore/*
 !mi_ignore/project.ipynb
 rsl_ignore
 .ipynb_checkpoints
