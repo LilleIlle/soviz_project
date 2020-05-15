@@ -2,7 +2,7 @@
 import folium
 import numpy as np
 import pandas as pd
-import seaborn as sns
+# import seaborn as sns
 from IPython.display import Image, display, HTML
 from bokeh.io import output_file, show, output_notebook
 from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
@@ -14,6 +14,9 @@ from folium.plugins import HeatMap
 dev = False
 # %% [markdown]
 # # 3. Data Analysis
+# In this section, we dive further into the data analysis we got an initial overview of in the previous section.
+# First, we will look at the temporality of crashes in Chicago. In the latter half, we will look further into the locations
+# of crashes (also with some temporal perspectives) to understand where different types of crashes occurs.
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
@@ -56,6 +59,11 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
+# To start off our temporal analysis, we look at the distribution of crashes over the months of year of 2019 as seen in the bar chart above.
+# Interestingly, we see that the summer months May till July has the highest number of crashes. May has the most crashes
+# with 10,584. The lowest was seen in February with 8,542 crashes. Our hypothesis prior to plotting was that the winter months had more crashes, but this plot
+# proved us otherwise. One explanation could be that the summer months see more traffic as it also tourist season.
+# %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
 # %%
@@ -89,6 +97,10 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/days_barchart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# Next up we look at the distribution of crashes throughout the days of the week as seen in the bar chart above. We
+# can see that the weekend has the most crashes peaking Saturday with 18,480 crashes. Monday has the lowest with 14,027 crashes.
+# This could be due to more traffic occurring during the weekend.
 # %%
 # > TODO: Heat map of weekly pattern
 #
@@ -130,6 +142,10 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# In the above plot, we look at the 24 hours of the day. Here we can clearly see that amount of crashes follow the initution of when
+# there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8-9 am (to work) and then again
+# at 15-19 pm (home from work). From there on, we see a decreasing decline of crashes from 18 pm till 5 am.
 # %% [markdown]
 # ##############################################################################################################
 # ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
@@ -186,6 +202,10 @@ if dev:
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_congestion_barchart.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
+# To further understand the crash distribution of the day, here we see the same histogram as previously, but now with a trend line showing the
+# average speed in mph. It is clear that the two move inversely; when the crashes are low, average speed is high and vice versa. This verifies
+# the intuition that less average speed means cluttering which also means more traffic which finally means more crashes.
+# %% [markdown]
 # ##############################################################################################################
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
@@ -238,6 +258,9 @@ if dev:
     output_file("../web/bokeh/crash_count_vs_avg_speed.html")
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count_vs_avg_speed.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# From the previous plot, we got the hypothesis that the regions that generally had lower average speed would have more
+# crashes. From the scatter plot above, however, we see there is no evident tendency in region average speed and amount of crashes.
 # %% [markdown]
 # ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
@@ -293,6 +316,17 @@ if dev:
 
     show(p)
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cause.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# To further understand what causes the crashes throughout the hours of the day, we have made the interactive bar chart above where
+# the reader can enable and disable primary causes for a crash and see the distribution throughout the day. Note that we have filtered
+# the causes 'UNABLE TO DETERMINE' as well as 'NOT APPLICABLE' as well as causes that have been registered 150 times or less.
+# We have applied a log-scale y-axis as there is a large difference in frequency in the different causes; the two most common being
+# 'FAILING TO YIELD RIGHT-OF-WAY' and 'FOLLOWING TOO CLOSELY'. However, not all causes follow the general curve of crashes.
+# Notably, 'UNDER THE INFLUENCE OF ALCOHOL/DRUGS (USE WHEN ARREST IS EFFECTED)' is practically the opposite peaking around 23-4.
+# Also some of the causes that are largely caused by circumstances outside the control of the driver such as
+# 'VISION OBSCURED (SIGNS, TREE LIMBS, BUILDING, ETC.), 'ROAD CONSTRUCTION/MAINTENANCE' AND 'ROAD ENGINEERING/SURFACE/MARKING DEFECTS'
+# see are more uniform frequency throughout the day from 8 am till around 20-22 pm. This implies that drivers are more likely to be
+# involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.
 # %%
 # ##############################################################################################################
 # %%
