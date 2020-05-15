@@ -528,4 +528,16 @@ Image("../web/folium/pngs/plplot.png")
 # %%
 Image("../web/folium/pngs/regions_fatal_incap.png")
 # %% [markdown]
-# TODO: regions fatal
+# We wanted to explore which regions were the more dangerous in terms of traffic crashes.
+# For this purpose, simply counting the severe crashes can be misleading due to the significant difference in the amount of crashes for each region.
+# To make a more accurate measure, we calculated the ratio of severe crashes for each region as follows:
+# $$ratio =  \frac{\text{severe crashes}}{\text{total crashes}}$$
+
+# On the plot above, we see a map of all regions colored after this ratio just described.
+
+# We see here that even though many crashes occur in region 12, 13, and 29, very few of them are severe.
+# Note that we know from earlier research, that these regions are in fact the three regions with the *lowest* average speed.
+
+# In contrast, if we look at region 19, 22 and 24, where the ratio of severe crashes are very high, we can see that all three regions are in top 10 of *highest* average speed.
+
+# This indicates that the higher the speed, the more severe injuries are obtained from traffic crashes.
