@@ -27,11 +27,78 @@
       massive—freely available—data sets. In the following, we take a deep dive
       into the data revolving around traffic accidents and present our findings.
     </p>
+    <a
+      href="https://chicago-traffic.netlify.app/explainer.html"
+      style="width: 600px; margin-top: -6px; margin-bottom: 24px;"
+      target="_blank"
+      >Explainer Notebook</a
+    >
+    <img class="intro-map" src="assets/intro_map.png" alt="Chicago Map" />
     <p>
       By
       <em>Marco Illemann, Rasmus Suonperä Liebst & Robert Marker Karlsson</em>
       <br />
       <span style="font-size: 12px;">May, 15 2020</span>
+    </p>
+    <p>
+      In this project, we investigate the traffic of the City of Chicago as a
+      case study of a busy urban environment. With its population of
+      approximately 2.7 million it is the third-most-populous city in the United
+      States. Daily life in Chicago thus entails millions of people
+      participating in the city's traffic. We will have a main focus on temporal
+      patterns of traffic in the project.
+    </p>
+    <p>
+      Two data sets are used for this project:
+    </p>
+    <ul>
+      <li>
+        <a
+          href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if"
+        >
+          Traffic Crashes - Crashes
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://data.cityofchicago.org/dataset/Chicago-Traffic-Tracker-Historical-Congestion-Esti/kf7e-cur8"
+        >
+          Chicago Traffic Tracker - Historical Congestion Estimates by Region -
+          2018-Current
+        </a>
+      </li>
+    </ul>
+    <br />
+    <br />
+    <p>
+      In the following, these are referred to as the <em>Crashes</em> and
+      <em>Congestion</em>
+      data sets, respectively. Both sets are freely available via [Chicago Data
+      Portal](https://data.cityofchicago.org).
+    </p>
+    <p>
+      The Crashes data set contains location as well as a multitude of meta data
+      on each police registered traffic crash within the City of Chicago limits
+      and under the jurisdiction of Chicago Police Department.
+    </p>
+    <p>
+      The Congestion data set contains information about the congestion of the
+      streets. Congestion is estimated by probing GPS traces from the public
+      transportation buses, yielding regional average speeds of buses with 10
+      minutes intervals. The congestion data set features a division of Chicago
+      into 29 regions that covers the city (except O’Hare airport area). With
+      comparable traffic patterns, a region is comprised of two or three
+      community areas.
+    </p>
+    <p>
+      The combination of theses two data sets allows for relating each crash to
+      one of the 29 defined regions of the City of Chicago, as well as the
+      estimated level of congestion at the time of the crash.
+    </p>
+    <p>
+      Through careful analysis of the data, the goal is to elicit interesting
+      findings about the traffic patterns of the City of Chicago and convey them
+      in an intuitive manner to educate, non-scientific readers.
     </p>
 
     <section>

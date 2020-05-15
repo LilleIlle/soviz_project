@@ -42,6 +42,10 @@ body {
   margin-top: 30px;
 }
 
+.intro-map {
+  width: 700px;
+}
+
 section {
   display: flex;
   flex-direction: column;
