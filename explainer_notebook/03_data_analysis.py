@@ -384,7 +384,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crash
 # %% [markdown]
 # On the heat map above it can be seen how all crashes in our data set is distributed around the city.
 # It is clear that the highest density of crashes is centered around the harbor.
-# Looking at the *regions plot* from earlier we can see that the concerned regions are 12, 13 and 29. , i.e. the Chicago Loop discussed earlier..
+# Looking at the *regions plot* from earlier we can see that the concerned regions are 12, 13 and 29, i.e. the Chicago Loop discussed earlier.
 # %%
 if dev:
     # Heat map over time - Hour
@@ -415,7 +415,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crash
 # To see how the distribution of crashes changes throughout the day, the heat map animation above is created.
 # The animation confirms the findings made earlier, namely that the amount of crashes is peaking when people are traveling to and from work. Likewise, very few crashes happens at night.
 
-# We see no particular changes in *where* the crashes occur doing the course if the day.
+# We see no particular changes in *where* the crashes occur during the course of the day.
 # %%
 if dev:
     # Static heat map fatal
@@ -433,12 +433,12 @@ if dev:
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000>"))
 # %% [markdown]
-# As earlier discussed, the downtown area also feature the lowest average speeds of Chicago. From this we hypothesised
+# As earlier discussed, the downtown area also features the lowest average speeds of Chicago. From this we hypothesised
 # that we would not see the most serious crashes in terms of personal damage in these areas.
-# Instead of solely looking at the location for all crashes, we wanted therefore wanted to investigate where the more severe crashes take place.
-# First we look at crashes with a fatal outcome for at least one person. The distribution of these crashes can be seen on the figure above.
+# Instead of solely looking at the location for all crashes, we therefore wanted to investigate where the more severe crashes take place.
+# First, we look at crashes with a fatal outcome for at least one person. The distribution of these crashes can be seen on the figure above.
 # An interesting observation is that the density of fatal crashes is higher in areas away from the Chicago Loop.
-# Notably, around West Madison Street and North Cicero Avenue has the highest amount of fatal traffic accidents, the former being
+# Notably, West Madison Street and North Cicero Avenue has the highest amount of fatal traffic accidents, the former being
 # a large street west of the Chicago Loop and North Cicerone Avenue is slightly north from West Madison Street.
 # %%
 if dev:
@@ -475,10 +475,10 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal
 
 # %% [markdown]
 
-# Since the amount of crashes with fatal consequences are relatively small, the criteria for a *severe crash* is expanded to also include crashes with an incapacitating outcome for at least one person.
-# The distribution for these crashes can be seen on the heat map above.
-# It is noted that severe crashes – with fatal or incapacitating consequences – is spread all over the city, but with some high-density areas.
-# These areas include the before-mentioned streets but now also the Chicago Loop where a large amount of incapacitating traffic accidents occur.
+# Since the amount of crashes with fatal outcome is relatively small, the criteria for a *severe crash* is expanded to also include crashes with an incapacitating outcome for at least one person.
+# The distribution of these crashes can be seen on the heat map above.
+# It is noted that severe crashes—with fatal or incapacitating outcome—is spread all over the city, but with some high-density areas.
+# These areas include the aforementioned streets but now also the Chicago Loop where a large amount of incapacitating traffic accidents occur.
 
 # %%
 
