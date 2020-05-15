@@ -23,7 +23,6 @@ if dev:
     p = figure(x_range=x,
                plot_height=450,
                plot_width=800,
-               title="Monthly Crash Distribution",
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
@@ -43,7 +42,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barc
 # Interestingly, we see that the summer months May till July has the highest number of crashes. May has the most crashes
 # with 10,584. The lowest was seen in February with 8,542 crashes. Our hypothesis prior to plotting was that the winter months had more crashes, but this plot
 # proved us wrong. One explanation could be that the summer months see more traffic as it is tourist season.
-# %%
+# %%t
 if dev:
     output_file("../web/bokeh/days_barchart.html")
 
@@ -98,7 +97,6 @@ if dev:
 
     p = figure(plot_height=450,
                plot_width=800,
-               title="Hourly Crash Distribution",
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
@@ -142,7 +140,6 @@ if dev:
     p = figure(  # x_range=(-0.5,23.5),
         plot_height=450,
         plot_width=800,
-        title="Hourly Crash Distribution",
         toolbar_location=None,
         tools='',
         # tooltips=TOOLTIPS,
@@ -192,7 +189,6 @@ if dev:
 
     p = figure(plot_height=450,
                plot_width=800,
-               title="Hourly Crash Distribution Weekend",
                toolbar_location=None,
                tools='',
                tooltips=TOOLTIPS,
