@@ -17,18 +17,12 @@ dev = False
 # In this section, we dive further into the data analysis we got an initial overview of in the previous section.
 # First, we will look at the temporality of crashes in Chicago. In the latter half, we will look further into the locations
 # of crashes (also with some temporal perspectives) to understand where different types of crashes occur.
+# %% [markdown]
+#
+# ### Monthly and Weekly Temporal Patterns
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
-# %%
-#
-# ### Monthly and Weekly Temporal Patterns
-#
-# %% [markdown]
-
-# ### CRASH COUNT MONTHS PLOT
-# %%
-if dev:
     output_file("../web/bokeh/months_barchart.html")
     x = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
          'August', 'September', 'October', 'November', 'December']
@@ -100,13 +94,9 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/days_barcha
 # Next up we look at the distribution of crashes throughout the days of the week as seen in the bar chart above. We
 # can see that the weekend has the most crashes peaking Saturday with 18,480 crashes. Monday has the lowest with 14,027 crashes.
 # This could be due to more traffic occurring during the weekend.
-# %%
-# > TODO: Heat map of weekly pattern
+# %% [markdown]
 #
 # ### Daily Temporal Patterns
-#
-# %% [markdown]
-# ### HOUR PLOT HISTOGRAM
 # %%
 if dev:
     output_file("../web/bokeh/hours_barchart.html")
@@ -144,8 +134,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barch
 # In the above plot, we look at the 24 hours of the day. Here we can clearly see that the amount of crashes follows the intuition of when
 # there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8–9 a.m. (to work) and then again
 # at 15–19 p.m. (home from work). From there on, we see a decreasing decline of crashes from 18 p.m. till 5 a.m.
-# %% [markdown]
-# ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
 # %%
 if dev:
     congestion = pd.read_csv("../data/congestion_2019.csv")
@@ -177,8 +165,6 @@ if dev:
         y_axis_label='Number of Crashes',
         x_axis_label='Hour')
 
-    #p.yaxis.axis_line_color = "navy"
-    # p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
     p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
            fill_color='#000000', line_color='#000000', fill_alpha=0.25)
 
@@ -202,47 +188,47 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_conge
 # To further understand the crash distribution of the day, here we see the same histogram as previously, but now with a trend line showing the
 # average speed in mph. It is clear that the two move inversely; when the crashes are low, average speed is high and vice versa. This verifies
 # the intuition that less average speed means cluttering which also means more traffic which finally means more crashes.
-# %% HOUR BARCHART WEEKEND
-output_file("../web/bokeh/hours_barchart_weekend.html")
-hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
+# %%
+if dev:
+    # HOUR BARCHART WEEKEND
+    output_file("../web/bokeh/hours_barchart_weekend.html")
+    hours = pd.DataFrame({'CRASH_HOUR': np.arange(0, 24)})
 
-x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
-xx = x.copy()
-xx.append(24)
+    x = np.sort(crashes['CRASH_HOUR'].unique()).tolist()
+    xx = x.copy()
+    xx.append(24)
 
-crashes_weekend = crashes[(crashes['CRASH_DAY_OF_WEEK']==6) | (crashes['CRASH_DAY_OF_WEEK']==7)]
-counts = crashes_weekend['CRASH_HOUR'].value_counts().sort_index()
+    crashes_weekend = crashes[(crashes['CRASH_DAY_OF_WEEK'] == 6) | (
+        crashes['CRASH_DAY_OF_WEEK'] == 7)]
+    counts = crashes_weekend['CRASH_HOUR'].value_counts().sort_index()
 
-TOOLTIPS = [
-    ("Crashes", "@top"),
-]
+    TOOLTIPS = [
+        ("Crashes", "@top"),
+    ]
 
-p = figure(plot_height=450,
-           plot_width=800,
-           title="Hourly Crash Distribution Weekend",
-           toolbar_location=None,
-           tools='',
-           tooltips=TOOLTIPS,
-           y_axis_label='Number of Crashes',
-           x_axis_label='Hour')
+    p = figure(plot_height=450,
+               plot_width=800,
+               title="Hourly Crash Distribution Weekend",
+               toolbar_location=None,
+               tools='',
+               tooltips=TOOLTIPS,
+               y_axis_label='Number of Crashes',
+               x_axis_label='Hour')
 
-p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
+    p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
            fill_color='#000000', line_color='#000000', fill_alpha=0.25)
 
-p.xgrid.grid_line_color = None
-p.y_range.start = 0
-p.xaxis.ticker = list(range(0, 24))
-
-show(p)
+    p.xgrid.grid_line_color = None
+    p.y_range.start = 0
+    p.xaxis.ticker = list(range(0, 24))
+    show(p)
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barchart_weekend.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # Above we again look at the hours of the day, but now only for the weekend. We see that the 8–9 spike is gone,
 # as less people are commuting to work. There is still lowest crash activity in the night hours. However,
 # in the weekends the decline is now much slower, and there is now a fairly steady amount of crashes from 20 p.m. to midnight.
-# %% [markdown]
-# ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
 if dev:
-    # TODO: Don't use hardcoded dicts
     region_crashes_tally = {3: 5199, 15: 4024, 18: 7739, 19: 4021, 2: 4114, 8: 6159, 26: 3923, 6: 4895, 7: 4922, 20: 3413,
                             13: 5461, 22: 2267, 10: 6406, 5: 6591, 11: 6782, 4: 2940, 14: 4409, 16: 2847, 28: 1049, 9: 2873,
                             23: 4908, 12: 4140, 21: 3190, 24: 3625, 1: 2592, 17: 1288, 27: 1477, 25: 1832, 29: 2407,
@@ -293,8 +279,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count
 # %% [markdown]
 # From the previous plot, we got the hypothesis that the regions that generally had lower average speed would have more
 # crashes. From the scatter plot above, however, we see there is no evident tendency in region average speed and amount of crashes.
-# %% [markdown]
-# ### PRIMARY CAUSE BOKEH
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
@@ -455,8 +439,6 @@ if dev:
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_incapacitating.html' height='750' width='1000'></iframe>"))
 
-# %% [markdown]
-# TODO: Incap
 # %%
 if dev:
     # Static heat map fatal and incapacitating
@@ -544,8 +526,6 @@ if dev:
                          tiles="Stamen Toner", zoom_start=11)
 
     for i, row in locations.iterrows():
-        # TODO: Only for hand-in..
-        break
         region = row.REGION_ID
         if region == -1:
             continue
