@@ -219,7 +219,8 @@ if dev:
 Image('../web/folium/pngs/regions.png')
 # %% [markdown]
 # As described in the *Motivation* section, Chicago is divided into 29 regions in order to estimate traffic congestion around the city.
-# All crashes has been plotted with a unique color for each region to visualize this partition.
+# To visualize this partition, all crashes has been plotted with a unique color for each region.
+# To ease the relation between future findings and location of the regions, the unique IDs are added to the figure.
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
