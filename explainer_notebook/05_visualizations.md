@@ -10,4 +10,6 @@ The striking red color of the trend line is also used for coloring the y-axis it
 In Figure X of Section 3 a scatter chart is used to investigate the correlation between two attributes.
 
 For geospatial data, map visualizations are naturally used to convey the locality of crashes as well
-as heat maps showing the concentration of various events. Furthermore, animations our time is supported by heat maps, making it an evident choice for temporal visualizations.
+as heat maps showing the concentration of various events. For showing the temporal development of crashes, 
+some of the maps are augmented with animations scrubbing through time. Animations are thus an evident choice for temporal visualizations.
+
