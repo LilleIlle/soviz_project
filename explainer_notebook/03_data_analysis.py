@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import numpy as np
 from bokeh.palettes import Category20, Category20b, Turbo256
@@ -9,6 +10,10 @@ from bokeh.plotting import figure, output_file, save
 import matplotlib as plt
 import folium
 import bokeh
+from folium import plugins
+
+# %%
+output_notebook()
 # %% [markdown]
 # # 3. Data Analysis
 # %%
@@ -22,8 +27,8 @@ crashes = pd.read_csv("../data/crashes_2019_regions.csv")
 # ### CRASH COUNT MONTHS PLOT
 # %%
 output_file("../web/bokeh/months_barchart.html")
-
-x = ['January','February','March','April','May','June','July','August','September','October','November','December']
+x = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+     'August', 'September', 'October', 'November', 'December']
 counts = crashes['CRASH_MONTH'].value_counts().sort_index()
 
 TOOLTIPS = [
@@ -42,7 +47,8 @@ p = figure(x_range=x,
            y_axis_label='Number of Crashes',
            x_axis_label='Month')
 
-p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
+p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25,
+       fill_color='#000000', line_color='#000000')
 
 p.xgrid.grid_line_color = None
 p.y_range.start = 0
@@ -54,7 +60,8 @@ show(p)
 # %%
 output_file("../web/bokeh/days_barchart.html")
 
-weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+weekdays = ['Monday', 'Tuesday', 'Wednesday',
+            'Thursday', 'Friday', 'Saturday', 'Sunday']
 counts = crashes['CRASH_DAY_OF_WEEK'].value_counts().sort_index()
 
 TOOLTIPS = [
@@ -71,7 +78,8 @@ p = figure(x_range=weekdays,
            y_axis_label='Number of Crashes',
            x_axis_label='Day of the Week')
 
-p.vbar(x=weekdays, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
+p.vbar(x=weekdays, top=counts, width=0.5, fill_alpha=0.25,
+       fill_color='#000000', line_color='#000000')
 
 p.xgrid.grid_line_color = None
 p.y_range.start = 0
@@ -109,7 +117,7 @@ p = figure(plot_height=450,
            x_axis_label='Hour')
 
 p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
-           fill_color='#000000', line_color='#000000', fill_alpha=0.25)
+       fill_color='#000000', line_color='#000000', fill_alpha=0.25)
 
 p.xgrid.grid_line_color = None
 p.y_range.start = 0
@@ -123,8 +131,8 @@ show(p)
 congestion = pd.read_csv("../data/congestion_2019.csv")
 output_file("../web/bokeh/hours_congestion_barchart.html")
 
-congestion = congestion[congestion['SPEED']>0.0]
-regions_congestion = congestion.groupby(['REGION_ID','HOUR'])['SPEED'].mean()
+congestion = congestion[congestion['SPEED'] > 0.0]
+regions_congestion = congestion.groupby(['REGION_ID', 'HOUR'])['SPEED'].mean()
 hour_congestion = congestion.groupby('HOUR')['SPEED'].mean()
 
 
@@ -135,32 +143,35 @@ xx = x.copy()
 xx.append(24)
 counts = crashes['CRASH_HOUR'].value_counts().sort_index()
 
-#TOOLTIPS = [
+# TOOLTIPS = [
 #    ("Crashes", "@top"),
-#]
+# ]
 
 
-p = figure(#x_range=(-0.5,23.5),
-           plot_height=450,
-           plot_width=800,
-           title="Hourly Crash Distribution",
-           toolbar_location=None,
-           tools='',
-           #tooltips=TOOLTIPS,
-           y_axis_label='Number of Crashes',
-           x_axis_label='Hour')
+p = figure(  # x_range=(-0.5,23.5),
+    plot_height=450,
+    plot_width=800,
+    title="Hourly Crash Distribution",
+    toolbar_location=None,
+    tools='',
+    # tooltips=TOOLTIPS,
+    y_axis_label='Number of Crashes',
+    x_axis_label='Hour')
 
 #p.yaxis.axis_line_color = "navy"
-#p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
+# p.vbar(x=x, top=counts, width=0.5, fill_alpha=0.25, fill_color='#000000', line_color='#000000')
 p.quad(top=counts, left=xx[:-1], right=xx[1:], width=0.5,
-           fill_color='#000000', line_color='#000000', fill_alpha=0.25)
+       fill_color='#000000', line_color='#000000', fill_alpha=0.25)
 
-p.extra_y_ranges = {'SPEED': Range1d(start=(hour_congestion.min()-0.25), end=(hour_congestion.max())+0.25)}
-p.add_layout(LinearAxis(y_range_name='SPEED', axis_label="Average mph", axis_line_color='red'), 'right')
+p.extra_y_ranges = {'SPEED': Range1d(
+    start=(hour_congestion.min()-0.25), end=(hour_congestion.max())+0.25)}
+p.add_layout(LinearAxis(y_range_name='SPEED',
+                        axis_label="Average mph", axis_line_color='red'), 'right')
 
 extra_value_y = pd.Series([hour_congestion[0]], index=[24])
 hour_congestion = hour_congestion.append(extra_value_y)
-p.line(xx, hour_congestion.array, line_width=1,y_range_name='SPEED',line_color="red")
+p.line(xx, hour_congestion.array, line_width=1,
+       y_range_name='SPEED', line_color="red")
 
 
 p.xgrid.grid_line_color = None
@@ -213,7 +224,8 @@ p = figure(
     sizing_mode='stretch_both',
 )
 
-p.circle(x, y, size=18, fill_color="black", fill_alpha=0.25, line_color="black")
+p.circle(x, y, size=18, fill_color="black",
+         fill_alpha=0.25, line_color="black")
 
 # Output to static HTML file
 output_file("../web/bokeh/crash_count_vs_avg_speed.html")
@@ -233,13 +245,15 @@ crashes_primary = crashes[(crashes['PRIM_CONTRIBUTORY_CAUSE'] != 'UNABLE TO DETE
 # Filtering all primary causes that have 150 or less occurences in the 2019 data set.
 cx = crashes_primary.groupby('PRIM_CONTRIBUTORY_CAUSE')
 cx = cx.filter(lambda x: len(x) > 150)
-cp = cx.PRIM_CONTRIBUTORY_CAUSE.unique() # crashes_primary.PRIM_CONTRIBUTORY_CAUSE.unique()
+# crashes_primary.PRIM_CONTRIBUTORY_CAUSE.unique()
+cp = cx.PRIM_CONTRIBUTORY_CAUSE.unique()
 
 # %%
 # Counting occurences across the day for each cause
 causes_norm = pd.DataFrame({'CRASH_HOUR': np.arange(1, 25)})
 for cause in cp:
-    cause_hist = crashes_primary[crashes_primary['PRIM_CONTRIBUTORY_CAUSE'] == cause].groupby('CRASH_HOUR').size()
+    cause_hist = crashes_primary[crashes_primary['PRIM_CONTRIBUTORY_CAUSE'] == cause].groupby(
+        'CRASH_HOUR').size()
     # cause_hist_norm = (cause_hist / cause_hist.sum()) # distribution for a given cause seen only in context of the cause
     causes_norm[cause] = cause_hist
 causes_norm.fillna(0)
@@ -247,14 +261,14 @@ causes_norm.fillna(0)
 # %%
 source = causes_norm
 # %%
-#TOOLTIPS = [
+# TOOLTIPS = [
 #    ("Crashes", "@i"),
-#]
+# ]
 p = figure(x_range=FactorRange(factors=causes_norm.CRASH_HOUR.astype(str)),
            y_axis_type="log",
            title="Crash primary causes throughout the day",
            tools='',
-           #tooltips=TOOLTIPS,
+           # tooltips=TOOLTIPS,
            x_axis_label='Hour of the day',
            y_axis_label='Number of crashes',
            plot_width=1700,
@@ -282,4 +296,37 @@ show(p)
 # %%
 # ##############################################################################################################
 # %%
-# > TODO: Heat map of daily pattern
+crashes = pd.read_csv("../data/crashes_2019_regions.csv")
+chi_bounding = {
+    "lon": -87.6298,
+    "lat": 41.8281
+}
+map_location = [chi_bounding['lat'], chi_bounding['lon']]
+map_zoom = 10.5
+# %%
+CHI_map_time = folium.Map(
+    map_location, tiles="Stamen Toner", zoom_start=map_zoom)
+heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
+
+# Create weight column, using date
+heat_df['Weight'] = pd.to_datetime(heat_df['CRASH_DATE']).dt.hour
+heat_df['Weight'] = heat_df['Weight'].astype(float).dropna()
+
+# List comprehension to make out list of lists
+heat_data = [[[row['LATITUDE'], row['LONGITUDE']] for _, row in heat_df[heat_df['Weight'] == i].iterrows()] for i in
+             range(0, 24)]
+
+# Plot it on the map
+hm = plugins.HeatMapWithTime(heat_data,
+                             auto_play=False,
+                             radius=4,
+                             position="topright"
+                             )
+hm.add_to(CHI_map_time)
+CHI_map_time.save("../web/folium/heat_crashes_over_time.html")
+CHI_map_time
+
+
+# %%
+
+# %%
