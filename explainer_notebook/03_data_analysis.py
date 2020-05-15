@@ -284,7 +284,6 @@ if dev:
     source = causes_norm
     p = figure(x_range=FactorRange(factors=causes_norm.CRASH_HOUR.astype(str)),
                y_axis_type="log",
-               title="Crash primary causes throughout the day",
                tools='',
                # tooltips=TOOLTIPS,
                x_axis_label='Hour of the day',
@@ -395,7 +394,7 @@ if dev:
     HeatMap(data=heat_data, max_zoom=15, radius=25).add_to(CHI_map)
     CHI_map.save("../web/folium/heat_fatal.html")
     CHI_map
-display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000>"))
+display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # As earlier discussed, the downtown area also features the lowest average speeds of Chicago. From this we hypothesised
 # that we would not see the most serious crashes in terms of personal damage in these areas.
@@ -404,21 +403,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal
 # An interesting observation is that the density of fatal crashes is higher in areas away from the Chicago Loop.
 # Notably, West Madison Street and North Cicero Avenue has the highest amount of fatal traffic accidents, the former being
 # a large street west of the Chicago Loop and North Cicerone Avenue is slightly north from West Madison Street.
-# %%
-if dev:
-    # Static heat map incapacitating
-    CHI_map = folium.Map(
-        map_location, tiles="Stamen Toner", zoom_start=map_zoom)
-    data = crashes[incapacitating_injuries]
-    points = data.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
-    heat_data = [[row['LATITUDE'], row['LONGITUDE']]
-                 for _, row in points.iterrows()]
-
-    HeatMap(data=heat_data, max_zoom=15, radius=13).add_to(CHI_map)
-    CHI_map.save("../web/folium/heat_incapacitating.html")
-    CHI_map
-display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_incapacitating.html' height='750' width='1000'></iframe>"))
-
 # %%
 if dev:
     # Static heat map fatal and incapacitating
