@@ -1,19 +1,17 @@
 # %%
-import pandas as pd
-import numpy as np
-from bokeh.palettes import Category20, Category20b, Turbo256, Reds
-from bokeh.io import output_file, show, save, output_notebook
-from bokeh.models import ColumnDataSource, FactorRange, Legend, LinearAxis, Range1d
-import seaborn as sns
-from bokeh.transform import dodge
-from bokeh.plotting import figure
-import matplotlib as plt
 import folium
-import bokeh
-from folium.plugins import HeatMap, HeatMapWithTime
-from folium import plugins
-import math
+import numpy as np
+import pandas as pd
+import seaborn as sns
 from IPython.display import Image
+from bokeh.io import output_file, show, output_notebook
+from bokeh.models import FactorRange, Legend, LinearAxis, Range1d
+from bokeh.palettes import Category20, Category20b, Reds
+from bokeh.plotting import figure
+from bokeh.transform import dodge
+from folium import plugins
+from folium.plugins import HeatMap
+
 
 # %%
 output_notebook()
