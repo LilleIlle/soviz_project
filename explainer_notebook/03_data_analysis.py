@@ -25,7 +25,7 @@ if dev:
 # ### Monthly and Weekly Temporal Patterns
 #
 # %% [markdown]
-# ##############################################################################################################
+
 # ### CRASH COUNT MONTHS PLOT
 # %%
 if dev:
@@ -64,7 +64,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/months_barc
 # with 10,584. The lowest was seen in February with 8,542 crashes. Our hypothesis prior to plotting was that the winter months had more crashes, but this plot
 # proved us otherwise. One explanation could be that the summer months see more traffic as it also tourist season.
 # %% [markdown]
-# ##############################################################################################################
 # ### CRASH COUNT DAYS PLOT
 # %%
 if dev:
@@ -107,7 +106,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/days_barcha
 # ### Daily Temporal Patterns
 #
 # %% [markdown]
-# ##############################################################################################################
 # ### HOUR PLOT HISTOGRAM
 # %%
 if dev:
@@ -147,7 +145,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_barch
 # there is peak traffic in a city; around commute time to and from work. We clearly see a spike around 8-9 am (to work) and then again
 # at 15-19 pm (home from work). From there on, we see a decreasing decline of crashes from 18 pm till 5 am.
 # %% [markdown]
-# ##############################################################################################################
 # ### HOUR PLOT HISTOGRAM WITH AVERAGE SPEED TREND LINE
 # %%
 if dev:
@@ -206,7 +203,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/hours_conge
 # average speed in mph. It is clear that the two move inversely; when the crashes are low, average speed is high and vice versa. This verifies
 # the intuition that less average speed means cluttering which also means more traffic which finally means more crashes.
 # %% [markdown]
-# ##############################################################################################################
 # ### CRASH COUNT VS. AVERAGE SPEED SCATTERPLOT
 # %%
 if dev:
@@ -262,7 +258,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/crash_count
 # From the previous plot, we got the hypothesis that the regions that generally had lower average speed would have more
 # crashes. From the scatter plot above, however, we see there is no evident tendency in region average speed and amount of crashes.
 # %% [markdown]
-# ##############################################################################################################
 # ### PRIMARY CAUSE BOKEH
 # %%
 if dev:
@@ -328,7 +323,6 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/bokeh/primary_cau
 # see are more uniform frequency throughout the day from 8 am till around 20-22 pm. This implies that drivers are more likely to be
 # involved in crashes caused by common human errors in rush hour, likely as they are stressed and slack on safety on account of that.
 # %%
-# ##############################################################################################################
 # %%
 if dev:
     crashes = pd.read_csv("../data/crashes_2019_regions.csv")
@@ -339,7 +333,6 @@ if dev:
     map_location = [chi_bounding['lat'], chi_bounding['lon']]
     map_zoom = 10.5
     # Static heat map crashes
-    # TODO: Write text
     CHI_map = folium.Map(
         map_location, tiles="Stamen Toner", zoom_start=map_zoom)
     points = crashes.loc[:, ['LATITUDE', 'LONGITUDE']].dropna()
@@ -352,10 +345,13 @@ if dev:
     CHI_map.save("../web/folium/heat_crashes.html")
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crashes.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# On the heat map above it can be seen how all crashes in our data set is distributed around the city.
+# It is clear that the highest density of crashes is centered around the harbor.
+# Looking at the *regions plot* from earlier we can see that the concerned regions are 12, 13 and 29.
 # %%
 if dev:
     # Heat map over time - Hour
-    # TODO: Write text
     CHI_map_time = folium.Map(
         map_location, tiles="Stamen Toner", zoom_start=map_zoom)
     heat_df = crashes.loc[:, ['LATITUDE', 'LONGITUDE', 'CRASH_DATE']].dropna()
@@ -379,9 +375,13 @@ if dev:
     CHI_map_time
 
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crashes_over_time.html' height='750' width='1000'></iframe>"))
+# %% [markdown]
+# To see how the distribution of crashes changes throughout the day, the heat map animation above is created.
+# The animation confirms the foundings made earlier, namely that the amount of crashes is peaking when people are traveling to and from work. Likewise, very few crashes happens at night.
+
+# We see no particular changes in *where* the crashes occur doing the course if the day.
 # %%
 if dev:
-    # TODO: Insert text
     # Static heat map fatal
     CHI_map = folium.Map(
         map_location, tiles="Stamen Toner", zoom_start=map_zoom)
@@ -396,9 +396,12 @@ if dev:
     CHI_map.save("../web/folium/heat_fatal.html")
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000>"))
+# %% [markdown]
+# Instead of solely looking at the location for all crashes, we wanted to investigate where the more severe crashes take place.
+# First we look at crashes with a fatal outcome for at least one person. The distribution of these crashes can be seen on the figure above.
+# An interesting observation is that the density of fatal crashes is higher in areas away from the harbor.
 # %%
 if dev:
-    # TODO: Insert text
     # Static heat map incapacitating
     CHI_map = folium.Map(
         map_location, tiles="Stamen Toner", zoom_start=map_zoom)
@@ -412,9 +415,10 @@ if dev:
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_incapacitating.html' height='750' width='1000'></iframe>"))
 
+# %% [markdown]
+# TODO: Incap
 # %%
 if dev:
-    # TODO: Insert text
     # Static heat map fatal and incapacitating
     CHI_map = folium.Map(
         map_location, tiles="Stamen Toner", zoom_start=map_zoom)
@@ -429,6 +433,8 @@ if dev:
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal_and_incapacitating.html' height='750' width='1000'></iframe>"))
 
+# %% [markdown]
+# TODO: fatal and incap
 # %%
 
 
