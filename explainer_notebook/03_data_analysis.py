@@ -348,7 +348,7 @@ display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crash
 # %% [markdown]
 # On the heat map above it can be seen how all crashes in our data set is distributed around the city.
 # It is clear that the highest density of crashes is centered around the harbor.
-# Looking at the *regions plot* from earlier we can see that the concerned regions are 12, 13 and 29.
+# Looking at the *regions plot* from earlier we can see that the concerned regions are 12, 13 and 29. , i.e. the Chicago Loop discussed earlier..
 # %%
 if dev:
     # Heat map over time - Hour
@@ -377,7 +377,7 @@ if dev:
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_crashes_over_time.html' height='750' width='1000'></iframe>"))
 # %% [markdown]
 # To see how the distribution of crashes changes throughout the day, the heat map animation above is created.
-# The animation confirms the foundings made earlier, namely that the amount of crashes is peaking when people are traveling to and from work. Likewise, very few crashes happens at night.
+# The animation confirms the findings made earlier, namely that the amount of crashes is peaking when people are traveling to and from work. Likewise, very few crashes happens at night.
 
 # We see no particular changes in *where* the crashes occur doing the course if the day.
 # %%
@@ -397,9 +397,11 @@ if dev:
     CHI_map
 display(HTML("<iframe src='https://chicago-traffic.netlify.app/folium/heat_fatal.html' height='750' width='1000>"))
 # %% [markdown]
-# Instead of solely looking at the location for all crashes, we wanted to investigate where the more severe crashes take place.
+# As earlier discussed, the downtown area also feature the lowest average speeds of Chicago. From this we hypothesised
+# that we would not see the most serious crashes in terms of personal damage in these areas.
+# Instead of solely looking at the location for all crashes, we wanted therefore wanted to investigate where the more severe crashes take place.
 # First we look at crashes with a fatal outcome for at least one person. The distribution of these crashes can be seen on the figure above.
-# An interesting observation is that the density of fatal crashes is higher in areas away from the harbor.
+# An interesting observation is that the density of fatal crashes is higher in areas away from the Chicago Loop.
 # %%
 if dev:
     # Static heat map incapacitating
