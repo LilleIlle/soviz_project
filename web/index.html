@@ -661,9 +661,9 @@
       </div>
 
       <p>
-        Since the amount of crashes with fatal outcome is relatively small, we now expand the
-        criteria for a serious crash to also include crashes with an
-        incapacitating outcome for at least one person. The distribution of
+        Since the amount of crashes with fatal outcome is relatively small, we
+        now expand the criteria for a serious crash to also include crashes with
+        an incapacitating outcome for at least one person. The distribution of
         these crashes can be seen on the heat map below. It is noted that severe
         crashes—with fatal or incapacitating outcome—is spread all over the
         city, but with some high-density areas. These areas include the
@@ -709,37 +709,47 @@
         described. We see here that even though many crashes occur in regions
         12, 13, and 29, the Chicago Loop area, few of them are severe—the
         frequency of serious crashes are in category 1 (1.16%–1.35%) or category
-        2 (1.35%–1.49%). Recall from the earlier plots, that these
-        regions are in fact the three regions with the lowest average speed,
-        i.e. the regions with the highest traffic congestion. This means that
-        the areas with the highest congestion (and arguably is the most
-        "chaotic" to navigate) actually has the lowest amount of serious
-        accidents. In contrast, if we look at regions 19, 22 and 24 that have
-        the highest ratio of serious accidents with 2.16%–2.76%, these are all
-        regions in the top 10 of highest average speed, i.e. low congestion
-        areas (and less densely populated) that allow for higher speeds. Thus to
-        conclude, the central areas see more frequent traffic crashes, however,
-        these has the lowest ratio of serious accidents. In contrast, in the
-        less central regions we see less frequent crashes, however, these tend
-        to be more serious when they do happen.
+        2 (1.35%–1.49%). Recall from the earlier plots, that these regions are
+        in fact the three regions with the lowest average speed, i.e. the
+        regions with the highest traffic congestion. This means that the areas
+        with the highest congestion (and arguably is the most "chaotic" to
+        navigate) actually has the lowest amount of serious accidents. In
+        contrast, if we look at regions 19, 22 and 24 that have the highest
+        ratio of serious accidents with 2.16%–2.76%, these are all regions in
+        the top 10 of highest average speed, i.e. low congestion areas (and less
+        densely populated) that allow for higher speeds. Thus to conclude, the
+        central areas see more frequent traffic crashes, however, these has the
+        lowest ratio of serious accidents. In contrast, in the less central
+        regions we see less frequent crashes, however, these tend to be more
+        serious when they do happen.
       </p>
       <img
-        style="width: 300px; margin-right: auto; margin-bottom: 12px;"
+        style="width: 300px; margin-right: auto;"
         src="folium/pngs/plplot.png"
       />
-      <img
-        style="
-          width: 600px;
-          border: 2px solid black;
-          border-radius: 4px;
-          margin-bottom: 12px;
-        "
-        src="folium/pngs/regions_fatal_incap.png"
-      />
+      <div class="iframe-wrapper">
+        <iframe
+          class="map"
+          height="750"
+          width="600"
+          data-src="folium/pngs/regions_fatal_incap_small.png"
+        ></iframe>
+        <div class="iframe-loading">
+          <h2>Loading...</h2>
+        </div>
+        <a
+          class="fullscreen-btn"
+          href="folium/pngs/regions_fatal_incap.png"
+          target="_blank"
+          title="View fullscreen"
+          ><img src="assets/icons/fullscreen.svg"
+        /></a>
+      </div>
       <div class="caption">
         <p class="caption__title">Figure X</p>
         <p class="caption__body">
-          Map showing the ratio of serious crashes relative to the total amount of crashes in each region.
+          Map showing the ratio of serious crashes relative to the total amount
+          of crashes in each region.
         </p>
       </div>
     </section>
